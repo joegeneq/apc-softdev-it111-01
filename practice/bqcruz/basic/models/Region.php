@@ -50,6 +50,6 @@ class Region extends \yii\db\ActiveRecord
      */
     public function getProvinces()
     {
-        return $this->hasMany(Province::className(), ['region_id1' => 'id']);
+        return $this->hasMany(Province::className(), ['region_id' => 'id']);
     }
 }
