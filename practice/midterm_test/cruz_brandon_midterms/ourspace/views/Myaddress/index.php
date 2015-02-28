@@ -30,9 +30,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'lastname',
             'gender',
             'created_at',
-            // 'home_address',
-            // 'landline',
-            // 'cellphone',
+            'home_address',
+            'landline',
+            'cellphone',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
