@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 28, 2015 at 10:34 AM
+-- Generation Time: Feb 28, 2015 at 11:11 AM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -32,6 +32,9 @@ CREATE TABLE IF NOT EXISTS `myaddress` (
   `lastname` varchar(30) NOT NULL,
   `gender` varchar(1) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `home_address` varchar(50) DEFAULT NULL,
+  `landline` varchar(20) DEFAULT NULL,
+  `cellphone` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
