@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2015 at 04:23 AM
+-- Generation Time: Mar 02, 2015 at 01:27 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -36,7 +36,14 @@ CREATE TABLE IF NOT EXISTS `myaddress` (
   `home_address` varchar(50) DEFAULT NULL,
   `landline` varchar(20) DEFAULT NULL,
   `cellphone` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=112346 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `myaddress`
+--
+
+INSERT INTO `myaddress` (`id`, `firstname`, `middlename`, `lastname`, `gender`, `created_at`, `home_address`, `landline`, `cellphone`) VALUES
+(112345, 'Carl', 'Balaoeg', 'Samson', 'm', '2015-03-02 12:26:37', 'Bayanan, Muntinlupa', '+6695956652', '09123456789');
 
 -- --------------------------------------------------------
 
@@ -76,7 +83,7 @@ ALTER TABLE `mycomment`
 -- AUTO_INCREMENT for table `myaddress`
 --
 ALTER TABLE `myaddress`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=112346;
 --
 -- Constraints for dumped tables
 --
