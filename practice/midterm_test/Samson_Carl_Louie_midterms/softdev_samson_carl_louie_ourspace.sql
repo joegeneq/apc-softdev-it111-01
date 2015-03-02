@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2015 at 01:27 PM
+-- Generation Time: Mar 02, 2015 at 02:17 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -58,6 +58,13 @@ CREATE TABLE IF NOT EXISTS `mycomment` (
   `body` longtext NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mycomment`
+--
+
+INSERT INTO `mycomment` (`id`, `myaddress_id`, `author`, `body`, `created_at`) VALUES
+(25262, 112345, 'Carl Samson', 'Sample comment. This is a sample comment for testing for the comment section. The quick brown fox jumped over the fence.', '2015-03-02 13:17:44');
 
 --
 -- Indexes for dumped tables
