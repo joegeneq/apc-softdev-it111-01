@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 28, 2015 at 11:32 AM
+-- Generation Time: Mar 02, 2015 at 06:36 PM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `softdev_Cruz_Brandon_ourspace`
+-- Database: `softdev_cruz_brandon_ourspace`
 --
 
 -- --------------------------------------------------------
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `myaddress` (
   `id` int(11) NOT NULL,
   `firstname` varchar(30) NOT NULL,
+  `middlename` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
   `gender` varchar(1) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -42,8 +43,8 @@ CREATE TABLE IF NOT EXISTS `myaddress` (
 -- Dumping data for table `myaddress`
 --
 
-INSERT INTO `myaddress` (`id`, `firstname`, `lastname`, `gender`, `created_at`, `home_address`, `landline`, `cellphone`) VALUES
-(1, 'Brandon', 'Cruz', 'M', '2015-02-28 03:30:10', 'Pasay City', '831-2441', '09178858041');
+INSERT INTO `myaddress` (`id`, `firstname`, `middlename`, `lastname`, `gender`, `created_at`, `home_address`, `landline`, `cellphone`) VALUES
+(1, 'Brandon', 'Quirino', 'Cruz', 'M', '2015-03-02 10:34:42', 'Pasay City', '831-2441', '09178858041');
 
 -- --------------------------------------------------------
 
