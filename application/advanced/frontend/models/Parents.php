@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "parent".
+ * This is the model class for table "parents".
  *
  * @property integer $id
  * @property string $parentfirstname
@@ -23,7 +23,7 @@ class Parents extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'parent';
+        return 'parents';
     }
 
     /**
