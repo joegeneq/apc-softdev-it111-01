@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2015 at 04:46 PM
+-- Generation Time: Mar 06, 2015 at 06:01 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -129,10 +129,10 @@ INSERT INTO `migration` (`version`, `apply_time`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `parent`
+-- Table structure for table `parents`
 --
 
-CREATE TABLE IF NOT EXISTS `parent` (
+CREATE TABLE IF NOT EXISTS `parents` (
   `id` int(11) NOT NULL,
   `parentfirstname` varchar(45) DEFAULT NULL,
   `parentlastname` varchar(45) DEFAULT NULL,
@@ -247,9 +247,9 @@ ALTER TABLE `migration`
  ADD PRIMARY KEY (`version`);
 
 --
--- Indexes for table `parent`
+-- Indexes for table `parents`
 --
-ALTER TABLE `parent`
+ALTER TABLE `parents`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -342,7 +342,7 @@ ADD CONSTRAINT `fk_event_admin1` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`i
 -- Constraints for table `student`
 --
 ALTER TABLE `student`
-ADD CONSTRAINT `fk_student_parent` FOREIGN KEY (`parent_id`) REFERENCES `parent` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ADD CONSTRAINT `fk_student_parent` FOREIGN KEY (`parent_id`) REFERENCES `parents` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `subject`
