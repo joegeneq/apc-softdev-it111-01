@@ -10,7 +10,7 @@ $this->title = 'My Yii Application';
 
         <p class="lead">This is the Student Tracking System for D'Carmelite School of Taguig.</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        <p><a class="btn btn-lg btn-primary" href="?r=account">Accounts</a></p>
     </div>
 
     <div class="body-content">

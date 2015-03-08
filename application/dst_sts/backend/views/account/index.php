@@ -38,4 +38,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
+    <p style="float:right"><a class="btn btn-lg glyphicon glyphicon-chevron-left" href="?r=site%2Findex">Back</a></p>
+
 </div>
