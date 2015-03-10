@@ -48,7 +48,7 @@ $this->title = 'DCarmelite School of Taguig - Student Tracking System';
 
                 </br>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+                <!--<p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>-->
             </div>
             <!--<div class="col-lg-4">
                 <h2>Heading</h2>
