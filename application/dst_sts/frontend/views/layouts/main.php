@@ -19,6 +19,13 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <link rel="icon" href="../views/site/images/dst-logo.png"/>
+    <!--<link rel="stylesheet" href="../web plugins/themes/default/default.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../web plugins/themes/light/light.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../web plugins/themes/dark/dark.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../web plugins/themes/bar/bar.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../web plugins/nivo-slider.css" type="text/css" media="screen" />-->
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
     <?php $this->head() ?>
 </head>
 <body>
@@ -65,8 +72,8 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p>&copy;  D'Carmelite School of Taguig <?= date('Y') ?> <img id="dst-logo" src="../views/site/images/dst-logo.png" height="40px" width="40px" style="margin-top:-7px;"/> </p>
+        <!--<p class="pull-right"><?= Yii::powered() ?></p>-->
         </div>
     </footer>
 
