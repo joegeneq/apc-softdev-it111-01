@@ -49,10 +49,10 @@ class Account extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'acounttype' => 'Acounttype',
-            'accountusername' => 'Accountusername',
-            'accountpassword' => 'Accountpassword',
-            'accountdateregistered' => 'Accountdateregistered',
+            'acounttype' => 'Type',
+            'accountusername' => 'Username',
+            'accountpassword' => 'Password',
+            'accountdateregistered' => 'Date Registered',
             'accountstatus' => 'Accountstatus',
             'instructor_id' => 'Instructor ID',
             'admin_id' => 'Admin ID',
