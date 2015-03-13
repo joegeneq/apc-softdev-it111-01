@@ -33,11 +33,10 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'accountstatus',
             // 'instructor_id',
             // 'admin_id',
+            // 'parents_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-
-    <p style="float:right"><a class="btn btn-lg glyphicon glyphicon-chevron-left" href="?r=site%2Findex">Back</a></p>
 
 </div>

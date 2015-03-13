@@ -15,9 +15,11 @@ use Yii;
  * @property string $accountstatus
  * @property integer $instructor_id
  * @property integer $admin_id
+ * @property integer $parents_id
  *
- * @property Admin $admin
  * @property Instructor $instructor
+ * @property Admin $admin
+ * @property Parents $parents
  */
 class Account extends \yii\db\ActiveRecord
 {
@@ -35,9 +37,9 @@ class Account extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['acounttype', 'accountusername', 'accountpassword', 'accountdateregistered', 'accountstatus', 'instructor_id', 'admin_id'], 'required'],
+            [['acounttype', 'accountusername', 'accountpassword', 'accountdateregistered', 'accountstatus', 'instructor_id', 'admin_id', 'parents_id'], 'required'],
             [['accountdateregistered'], 'safe'],
-            [['instructor_id', 'admin_id'], 'integer'],
+            [['instructor_id', 'admin_id', 'parents_id'], 'integer'],
             [['acounttype', 'accountusername', 'accountpassword', 'accountstatus'], 'string', 'max' => 45]
         ];
     }
@@ -49,14 +51,23 @@ class Account extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'acounttype' => 'Type',
-            'accountusername' => 'Username',
-            'accountpassword' => 'Password',
-            'accountdateregistered' => 'Date Registered',
+            'acounttype' => 'Acounttype',
+            'accountusername' => 'Accountusername',
+            'accountpassword' => 'Accountpassword',
+            'accountdateregistered' => 'Accountdateregistered',
             'accountstatus' => 'Accountstatus',
             'instructor_id' => 'Instructor ID',
             'admin_id' => 'Admin ID',
+            'parents_id' => 'Parents ID',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getInstructor()
+    {
+        return $this->hasOne(Instructor::className(), ['id' => 'instructor_id']);
     }
 
     /**
@@ -70,8 +81,8 @@ class Account extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getInstructor()
+    public function getParents()
     {
-        return $this->hasOne(Instructor::className(), ['id' => 'instructor_id']);
+        return $this->hasOne(Parents::className(), ['id' => 'parents_id']);
     }
 }

@@ -18,7 +18,7 @@ class AccountSearch extends Account
     public function rules()
     {
         return [
-            [['id', 'instructor_id', 'admin_id'], 'integer'],
+            [['id', 'instructor_id', 'admin_id', 'parents_id'], 'integer'],
             [['acounttype', 'accountusername', 'accountpassword', 'accountdateregistered', 'accountstatus'], 'safe'],
         ];
     }
@@ -60,6 +60,7 @@ class AccountSearch extends Account
             'accountdateregistered' => $this->accountdateregistered,
             'instructor_id' => $this->instructor_id,
             'admin_id' => $this->admin_id,
+            'parents_id' => $this->parents_id,
         ]);
 
         $query->andFilterWhere(['like', 'acounttype', $this->acounttype])

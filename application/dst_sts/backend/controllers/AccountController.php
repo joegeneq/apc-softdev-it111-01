@@ -46,12 +46,13 @@ class AccountController extends Controller
      * @param integer $id
      * @param integer $instructor_id
      * @param integer $admin_id
+     * @param integer $parents_id
      * @return mixed
      */
-    public function actionView($id, $instructor_id, $admin_id)
+    public function actionView($id, $instructor_id, $admin_id, $parents_id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id, $instructor_id, $admin_id),
+            'model' => $this->findModel($id, $instructor_id, $admin_id, $parents_id),
         ]);
     }
 
@@ -65,7 +66,7 @@ class AccountController extends Controller
         $model = new Account();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id, 'instructor_id' => $model->instructor_id, 'admin_id' => $model->admin_id]);
+            return $this->redirect(['view', 'id' => $model->id, 'instructor_id' => $model->instructor_id, 'admin_id' => $model->admin_id, 'parents_id' => $model->parents_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -79,14 +80,15 @@ class AccountController extends Controller
      * @param integer $id
      * @param integer $instructor_id
      * @param integer $admin_id
+     * @param integer $parents_id
      * @return mixed
      */
-    public function actionUpdate($id, $instructor_id, $admin_id)
+    public function actionUpdate($id, $instructor_id, $admin_id, $parents_id)
     {
-        $model = $this->findModel($id, $instructor_id, $admin_id);
+        $model = $this->findModel($id, $instructor_id, $admin_id, $parents_id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id, 'instructor_id' => $model->instructor_id, 'admin_id' => $model->admin_id]);
+            return $this->redirect(['view', 'id' => $model->id, 'instructor_id' => $model->instructor_id, 'admin_id' => $model->admin_id, 'parents_id' => $model->parents_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -100,11 +102,12 @@ class AccountController extends Controller
      * @param integer $id
      * @param integer $instructor_id
      * @param integer $admin_id
+     * @param integer $parents_id
      * @return mixed
      */
-    public function actionDelete($id, $instructor_id, $admin_id)
+    public function actionDelete($id, $instructor_id, $admin_id, $parents_id)
     {
-        $this->findModel($id, $instructor_id, $admin_id)->delete();
+        $this->findModel($id, $instructor_id, $admin_id, $parents_id)->delete();
 
         return $this->redirect(['index']);
     }
@@ -115,12 +118,13 @@ class AccountController extends Controller
      * @param integer $id
      * @param integer $instructor_id
      * @param integer $admin_id
+     * @param integer $parents_id
      * @return Account the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id, $instructor_id, $admin_id)
+    protected function findModel($id, $instructor_id, $admin_id, $parents_id)
     {
-        if (($model = Account::findOne(['id' => $id, 'instructor_id' => $instructor_id, 'admin_id' => $admin_id])) !== null) {
+        if (($model = Account::findOne(['id' => $id, 'instructor_id' => $instructor_id, 'admin_id' => $admin_id, 'parents_id' => $parents_id])) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
