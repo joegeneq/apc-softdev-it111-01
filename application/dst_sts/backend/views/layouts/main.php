@@ -60,8 +60,7 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p>&copy;  D'Carmelite School of Taguig <?= date('Y') ?> <img id="dst-logo" src="../../frontend/views/site/images/dst-logo.png" height="40px" width="40px" style="margin-top:-7px;"/><a style="margin-left:600px;"><?= Yii::powered() ?></a></p>
         </div>
     </footer>
 
