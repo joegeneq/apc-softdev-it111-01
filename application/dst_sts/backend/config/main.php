@@ -13,9 +13,20 @@ return [
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
+        'session' => [
+            'name' => 'PHPBACKSESSID',
+            'savePath' => __DIR__.'/../tmp',
+            'cookieParams' => [
+                'path' => 'localhost/dst_sts/backend/web/index.php',
+            ],
+        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
+            'identityCookie' => [
+                'name' => '_backendUser',
+                'path' => '/advanced/backend/web'
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

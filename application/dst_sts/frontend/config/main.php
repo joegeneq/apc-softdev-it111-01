@@ -12,9 +12,20 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'session' => [
+            'name' => 'PHPFRONTSESSID',
+            'savePath' => __DIR__.'/../tmp',
+            'cookieParams' => [
+                'path' => 'localhost/dst_sts/frontend/web/index.php',
+            ],
+        ],        
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
+            'identityCookie' => [
+                'name' => '_frontendUser',
+                'path' => '/advanced/backend/web'
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
