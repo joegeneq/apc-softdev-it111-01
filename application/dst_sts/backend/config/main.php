@@ -13,20 +13,16 @@ return [
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
-        'session' => [
-            'name' => 'PHPBACKSESSID',
-            'savePath' => __DIR__.'/../tmp',
-            'cookieParams' => [
-                'path' => 'localhost/dst_sts/backend/web/index.php',
-            ],
+        'db'=>[
+            'class'=>'yii\db\Connection',
+            'dsn' => 'mysql:host=localhost;dbname=dst_sts',
+            'username' => 'root',
+            'password' => '',
+            'charset' => 'utf8'            
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
-            'identityCookie' => [
-                'name' => '_backendUser',
-                'path' => '/advanced/backend/web'
-            ],
+            'identityClass' => 'app\models\User',
+            'enableAutoLogin' => false,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
