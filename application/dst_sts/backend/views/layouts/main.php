@@ -18,6 +18,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <link rel="icon" href="../views/site/images/dst-logo.png"/>
     <?php $this->head() ?>
 </head>
 <body>
@@ -25,7 +26,7 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'My Company',
+                'brandLabel' => 'D&rsquo;Carmelite School of Taguig',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
@@ -60,8 +61,8 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p>&copy;  D'Carmelite School of Taguig <?= date('Y') ?> <img id="dst-logo" src="../views/site/images/dst-logo.png" height="40px" width="40px" style="margin-top:-7px;"/> </p>
+        <!--<p class="pull-right"><?= Yii::powered() ?></p>-->
         </div>
     </footer>
 

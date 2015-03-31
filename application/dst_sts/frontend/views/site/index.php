@@ -1,51 +1,63 @@
 <?php
+use yii\helpers\Html;
 /* @var $this yii\web\View */
-$this->title = 'My Yii Application';
+$this->title = 'DCarmelite School of Taguig - Student Tracking System';
 ?>
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Congratulations!</h1>
+        <h1 style="font-size:40px;"><img id="dst-logo" src="../views/site/images/dst-logo.png"/> D'Carmelite School of Taguig</h1>
+        <h2 style="margin-top:-75px;">Student Tracking System</h2>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
     </div>
 
     <div class="body-content">
 
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+    <?php 
+        if(Yii::$app->user->isGuest) { ?>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+            <center><img id="staffpic" src="../views/site/images/staffpic.jpg" width="600px" height="400px"/></center>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+            </br>
+ 
+            <div class="row">
+                <div class="col-xs-11">
+                    <h2>D'Carmelite's Profile</h2>
+
+
+                    <p style="font-size:16px; margin">Established in 1995 as a non-profit non stock corporation and was founded by the late Mrs Carmelita Factuar. 
+                    It obtained government recognition from the Department of Education in 2011. (See <a href="?r=site/about">"About"</a> page for more info)</p>
+
+        <?php 
+        } else if(Yii::$app->user->identity->user_type == 'admin') { ?>
+            <h1 align='center'>Welcome back, <?=Yii::$app->user->identity->first_name?>!<br><br>Admin Portals:</h1>
+            <p align="center"><?= Html::a('Add User', ['site/signup'], ['class' => 'btn btn-success']) ?></p>
+
+        <?php 
+        } else if(Yii::$app->user->identity->user_type == 'parent') { ?>
+            <h1 align='center'>Welcome back, <?=Yii::$app->user->identity->first_name?>...Parent</h1>
+
+        <?php 
+        } else if(Yii::$app->user->identity->user_type == 'instructor') { ?>
+            <h1 align='center'>Welcome back, <?=Yii::$app->user->identity->first_name?>...Instructor</h1>
+
+        <?php 
+        } 
+        ?>
+
+            </br>
+               
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
+            
         </div>
 
     </div>
 </div>
+
+    <script type="text/javascript" src="../web plugins/demo/scripts/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="../web plugins/jquery.nivo.slider.js"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+    </script>
