@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 
 use yii\helpers\ArrayHelper;
 use common\models\User;
+use backend\models\Student;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Parents */
@@ -18,6 +19,11 @@ use common\models\User;
     <?= $form->field($model, 'user_id')->dropDownList(
         ArrayHelper::map(User::find()->all(),'id','username'),
         ['prompt'=>'Select username']
+    ) ?>
+
+    <?= $form->field($model, 'student_id')->dropDownList(
+        ArrayHelper::map(Student::find()->all(),'id','student_id_number'),
+        ['prompt'=>"Select your child's ID number"]
     ) ?>
 
     <?= $form->field($model, 'parents_first_name')->textInput(['maxlength' => 45]) ?>

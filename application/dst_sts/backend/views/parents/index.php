@@ -27,8 +27,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
             //'id',
             [
-                'attribute'=>'user_id',
+                'attribute'=>'Username',
                 'value'=>'user.username',
+            ],
+            [
+                'attribute'=>"Child's Name",
+                'value'=>'student.student_first_name',
             ],
             'parents_first_name',
             'parents_last_name',
