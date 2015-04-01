@@ -15,8 +15,6 @@ class SignupForm extends Model
     public $password;
 
     public $user_type;
-    public $first_name;
-    public $last_name;
 
     /**
      * @inheritdoc
@@ -27,8 +25,6 @@ class SignupForm extends Model
             ['username', 'filter', 'filter' => 'trim'],
             ['user_type', 'required'],
             ['username', 'required'],
-            ['first_name', 'required'],
-            ['last_name', 'required'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
@@ -53,13 +49,13 @@ class SignupForm extends Model
             $user = new User();
             $user->user_type = $this->user_type;
             $user->username = $this->username;
-            $user->first_name = $this->first_name;
-            $user->last_name = $this->last_name;
             $user->email = $this->email;
             $user->setPassword($this->password);
             $user->generateAuthKey();
             if ($user->save()) {
-                return $user;
+                Yii::$app->session->setFlash('success');
+            } else {
+                Yii::$app->session->setFlash('failed');
             }
         }
 
