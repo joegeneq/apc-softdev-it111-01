@@ -17,7 +17,7 @@ use backend\models\Student;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'user_id')->dropDownList(
-        ArrayHelper::map(User::find()->where(['user_type'=>'parent'])->all(),'id','username'),
+        ArrayHelper::map(User::find()->where(['user_type'=>'Parent'])->all(),'id','username'),
         ['prompt'=>'Select username']
     ) ?>
 
