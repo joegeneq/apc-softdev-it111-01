@@ -56,10 +56,6 @@ use dosamigos\datepicker\DatePicker;
                                                                 '4' => 'Grade 4',
                                                                 '5' => 'Grade 5',
                                                                 '6' => 'Grade 6',
-                                                                '7' => '1st Year HS',
-                                                                '8' => '2nd Year HS',
-                                                                '9' => '3rd Year HS',
-                                                                '10' => '4th Year HS',
                                                             ], ['prompt' => 'Select level']) ?>
 
     <?= $form->field($model, 'student_status')->dropDownList([ 'Enrolled' => 'Enrolled', 'Unenrolled' => 'Unenrolled', ], ['prompt' => '']) ?>
