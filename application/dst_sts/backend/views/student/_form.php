@@ -58,7 +58,7 @@ use dosamigos\datepicker\DatePicker;
                                                                 '6' => 'Grade 6',
                                                             ], ['prompt' => 'Select level']) ?>
 
-    <?= $form->field($model, 'student_status')->dropDownList([ 'Enrolled' => 'Enrolled', 'Unenrolled' => 'Unenrolled', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'student_status')->dropDownList([ 'Enrolled' => 'Enrolled', 'LOA - Leave of Absence' => 'LOA - Leave of Absence', 'AWOL - Absence Without Leave' ], ['prompt' => '']) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
