@@ -44,7 +44,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `user_type`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'bltzkrg02', 'Parent', 'S8AssaBF-5np2iJatvgfyMZ2fZG4Ta3Y', '$2y$13$hJa34ivgsHe8f6pLbnCgDezmlhBaZO9s0EV5xsG1.jbGdqOv95rWi', NULL, 'bltzkrg02@gmail.com', 10, 1427778202, 1427778202),
 (2, 'bltzkrg03', 'Instructor', 'GdX4APcvFjVLxvENrH7-LuCw6qFwN4ed', '$2y$13$cdckKJtn3hFnNb2dZvsN0OcKQDYz7zLKP/7TlF7L8GAfXRZc9iBiq', NULL, 'bltzkrg03@gmail.com', 10, 1427778421, 1427778421),
 (3, 'bltzkrg04', 'Parent', 'AVzuBl2Wei_95m4BraJcyES7JMhuXHUy', '$2y$13$jQXY.ALkeWv8LobF/v/oCeh19xpWxQpPxSbN9zdF4uzsXCiAUTK/i', NULL, 'bltzkrg04@gmail.com', 10, 1427814124, 1427814124),
 (4, 'bltzkrg05', 'Instructor', 'A-I1fpYnL9s3l4T4Oh7l7-YkykBno3oR', '$2y$13$9V/cRbu2FO7Yqlc1gHTmsuzgLOMFIuqp4AhQUebUnGezOeqBYGP4O', NULL, 'bltzkrg05@gmail.com', 10, 1427817761, 1427817761),
