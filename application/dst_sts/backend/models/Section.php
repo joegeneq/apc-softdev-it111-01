@@ -32,8 +32,8 @@ class Section extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'section_name', 'section_level', 'adviser_id'], 'required'],
-            [['id', 'adviser_id'], 'integer'],
+            [['section_name', 'section_level', 'adviser_id'], 'required'],
+            [['adviser_id'], 'integer'],
             [['section_name', 'section_level'], 'string', 'max' => 45]
         ];
     }
