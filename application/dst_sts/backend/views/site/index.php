@@ -18,8 +18,8 @@ $this->title = 'DCarmelite School of Taguig - Student Tracking System';
         <h1 align='center'>Welcome back, <?=Yii::$app->user->identity->first_name?>!<br><br>Admin Portals:</h1>
         <p align="center">
             <?= Html::a('Add User', ['site/signup'], ['class' => 'btn btn-success']) ?>
-            <?= Html::a('Add Event', ['event/index'], ['class' => 'btn btn-success']) ?>
-            <?= Html::a('Add Student', ['student/index'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('Events', ['event/index'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('Students', ['student/index'], ['class' => 'btn btn-success']) ?>
             <?= Html::a('Assign Parent', ['parents/index'], ['class' => 'btn btn-success']) ?>
             <?= Html::a('Assign Instructor', ['instructor/index'], ['class' => 'btn btn-success']) ?>
         </p>
