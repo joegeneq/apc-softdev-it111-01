@@ -44,9 +44,9 @@ class Adviser extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'adviser_first_name' => 'First Name',
-            'adviser_last_name' => 'Last Name',
-            'adviser_gender' => 'Gender',
+            'adviser_first_name' => 'Adviser First Name',
+            'adviser_last_name' => 'Adviser Last Name',
+            'adviser_gender' => 'Adviser Gender',
         ];
     }
 
