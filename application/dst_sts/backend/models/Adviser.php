@@ -30,8 +30,7 @@ class Adviser extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'adviser_first_name', 'adviser_last_name'], 'required'],
-            [['id'], 'integer'],
+            [['adviser_first_name', 'adviser_last_name'], 'required'],
             [['adviser_gender'], 'string'],
             [['adviser_first_name', 'adviser_last_name'], 'string', 'max' => 45]
         ];
