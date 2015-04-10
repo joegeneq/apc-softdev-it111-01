@@ -64,6 +64,7 @@ class StudentController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             //return $this->redirect(['view', 'id' => $model->id]);
+            $this->view->params['paramStudentId'] = $model->student_id_number;
             return $this->redirect(['parents/create']);
         } else {
             return $this->render('create', [
