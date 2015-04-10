@@ -2,8 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
 use dosamigos\datepicker\DatePicker;
+
+use yii\helpers\ArrayHelper;
+use backend\models\Section;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Student */
@@ -14,13 +16,18 @@ use dosamigos\datepicker\DatePicker;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->field($model, 'section_id')->dropDownList(
+        ArrayHelper::map(Section::find()->all(),'id','section_name'),
+        ['prompt'=>"Select section"]
+    ) ?>
+
     <?= $form->field($model, 'student_id_number')->textInput(['maxlength' => 45]) ?>
 
     <?= $form->field($model, 'student_first_name')->textInput(['maxlength' => 45]) ?>
 
     <?= $form->field($model, 'student_last_name')->textInput(['maxlength' => 45]) ?>
 
-    <?= $form->field($model, 'student_gender')->dropDownList([ 'Male' => 'Male', 'Female' => 'Female', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'student_gender')->dropDownList([ 'Male' => 'Male', 'Female' => 'Female', ], ['prompt' => 'Select gender']) ?>
 
     <?= $form->field($model, 'student_birthdate')->widget(
         DatePicker::className(), [
@@ -31,7 +38,6 @@ use dosamigos\datepicker\DatePicker;
             'clientOptions' => [
                 'autoclose' => true,
                 'format' => 'yyyy-mm-dd',
-                //'startDate' => '+0',
             ]
     ]);?>
 
@@ -40,7 +46,7 @@ use dosamigos\datepicker\DatePicker;
     <?= $form->field($model, 'student_admission_date')->widget(
         DatePicker::className(), [
             // inline too, not bad
-             'inline' => false, 
+             'inline' => false,
              // modify template for custom rendering
             //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
             'clientOptions' => [
@@ -58,7 +64,7 @@ use dosamigos\datepicker\DatePicker;
                                                                 '6' => 'Grade 6',
                                                             ], ['prompt' => 'Select level']) ?>
 
-    <?= $form->field($model, 'student_status')->dropDownList([ 'Enrolled' => 'Enrolled', 'LOA - Leave of Absence' => 'LOA - Leave of Absence', 'AWOL - Absence Without Leave' ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'student_status')->dropDownList([ 'Enrolled' => 'Enrolled', 'LOA - Leave of Absence' => 'LOA - Leave of Absence', 'AWOL - Absence Without Leave' => 'AWOL - Absence Without Leave' ], ['prompt' => 'Select status']) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

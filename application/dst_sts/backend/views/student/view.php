@@ -38,6 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'student_admission_date',
             'student_level',
             'student_status',
+            'section_id',
         ],
     ]) ?>
 

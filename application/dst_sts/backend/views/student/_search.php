@@ -35,6 +35,8 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'student_status') ?>
 
+    <?php // echo $form->field($model, 'section_id') ?>
+
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
