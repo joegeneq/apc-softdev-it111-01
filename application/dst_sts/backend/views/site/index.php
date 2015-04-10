@@ -21,7 +21,6 @@ $this->title = 'DCarmelite School of Taguig - Student Tracking System';
             <?= Html::a('Events', ['event/index'], ['class' => 'btn btn-success']) ?>
             <?= Html::a('Students', ['student/index'], ['class' => 'btn btn-success']) ?>
             <?= Html::a('Assign Parent', ['parents/index'], ['class' => 'btn btn-success']) ?>
-            <?= Html::a('Assign Instructor', ['instructor/index'], ['class' => 'btn btn-success']) ?>
         </p>
 
         </br>
