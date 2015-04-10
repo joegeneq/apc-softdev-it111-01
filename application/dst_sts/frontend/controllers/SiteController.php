@@ -14,6 +14,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
 use common\config\params;
+use yii\web\ForbiddenHttpException;
 
 /**
  * Site controller
@@ -120,18 +121,8 @@ class SiteController extends Controller
 
     public function actionSignup()
     {
-        $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
-                }
-            }
-        }
 
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
+        throw new ForbiddenHttpException('This page can only be accessed by the administrator.');
     }
 
     public function actionRequestPasswordReset()
