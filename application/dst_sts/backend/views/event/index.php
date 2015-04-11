@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\bootstrap\Modal;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\EventSearch */
@@ -16,8 +18,22 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Event', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::button('Create Event', [/*'create'], [*/'value'=>Url::to('index.php?r=event/create'),'class' => 'btn btn-success','id'=>'modalAddEventbtn']) ?>
     </p>
+
+    <?php
+
+        Modal::begin([
+                'header'=>'<h4>Add Event</h4>',
+                'id'=>'modalAddEvent',
+                'size'=>'modal-lg',
+            ]);
+
+        echo "<div id='modalContAddEvent'></div>";
+
+        Modal::end();
+
+        ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
