@@ -67,7 +67,7 @@ class StudentController extends Controller
             $this->view->params['paramStudentId'] = $model->student_id_number;
             return $this->redirect(['parents/create']);
         } else {
-            return $this->render('create', [
+            return $this->renderAjax('create', [
                 'model' => $model,
             ]);
         }
