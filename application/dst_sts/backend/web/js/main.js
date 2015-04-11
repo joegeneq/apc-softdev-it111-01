@@ -19,4 +19,10 @@ $(function(){
 			.load($(this).attr('value'));
 		})
 
+		$('#modalAddParentbtn').click(function(){
+			$('#modalAddParent').modal('show')
+			.find('#modalContAddParent')
+			.load($(this).attr('value'));
+		})
+
 });

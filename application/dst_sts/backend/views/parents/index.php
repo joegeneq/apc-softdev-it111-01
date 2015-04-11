@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use yii\bootstrap\Modal;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\ParentsSearch */
@@ -17,8 +19,22 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Parents', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::button('Create Parents', [/*'create'], [*/'value'=>Url::to('index.php?r=parents/create'),'class' => 'btn btn-success','id'=>'modalAddParentbtn']) ?>
     </p>
+
+    <?php
+
+        Modal::begin([
+                'header'=>'<h4>Add Parent</h4>',
+                'id'=>'modalAddParent',
+                'size'=>'modal-lg',
+            ]);
+
+        echo "<div id='modalContAddParent'></div>";
+
+        Modal::end();
+
+        ?>
 
     <?php Pjax::begin(); ?>
     <?= GridView::widget([
