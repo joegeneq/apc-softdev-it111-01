@@ -25,4 +25,10 @@ $(function(){
 			.load($(this).attr('value'));
 		})
 
+		$('#modalAddAdviserbtn').click(function(){
+			$('#modalAddAdviser').modal('show')
+			.find('#modalContAddAdviser')
+			.load($(this).attr('value'));
+		})
+
 });
