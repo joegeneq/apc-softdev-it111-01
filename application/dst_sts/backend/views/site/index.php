@@ -1,5 +1,7 @@
 <?php
 use yii\helpers\Html;
+use yii\bootstrap\Modal;
+use yii\helpers\Url;
 /* @var $this yii\web\View */
 
 $this->title = 'DCarmelite School of Taguig - Student Tracking System';
@@ -17,7 +19,7 @@ $this->title = 'DCarmelite School of Taguig - Student Tracking System';
     
         <h1 align='center'>Welcome back, <?=Yii::$app->user->identity->first_name?>!<br><br>Admin Portals:</h1>
         <p align="center">
-            <?= Html::a('Add User', ['site/signup'], ['class' => 'btn btn-success']) ?>
+            <?= Html::button('Add User', [/*'site/signup'], [*/'value'=>Url::to('index.php?r=site/signup'),'class' => 'btn btn-success','id'=>'modalAddUserbtn']) ?>
             <?= Html::a('Events', ['event/index'], ['class' => 'btn btn-success']) ?>
             <?= Html::a('Students', ['student/index'], ['class' => 'btn btn-success']) ?>
             <?= Html::a('Assign Parent', ['parents/index'], ['class' => 'btn btn-success']) ?>
@@ -25,6 +27,20 @@ $this->title = 'DCarmelite School of Taguig - Student Tracking System';
             <?= Html::a('Advisers', ['adviser/index'], ['class' => 'btn btn-success']) ?>
             <?= Html::a('Sections', ['section/index'], ['class' => 'btn btn-success']) ?>
         </p>
+
+        <?php
+
+        Modal::begin([
+                'header'=>'<h4>Add User</h4>',
+                'id'=>'modalAddUser',
+                'size'=>'modal-lg',
+            ]);
+
+        echo "<div id='modalContAddUser'></div>";
+
+        Modal::end();
+
+        ?>
 
         </br>
            
