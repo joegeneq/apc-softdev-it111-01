@@ -21,9 +21,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'event_date') ?>
 
+    <?= $form->field($model, 'event_host') ?>
+
     <?= $form->field($model, 'event_venue') ?>
 
-    <?= $form->field($model, 'event_description') ?>
+    <?php // echo $form->field($model, 'event_description') ?>
 
     <?php // echo $form->field($model, 'event_status') ?>
 

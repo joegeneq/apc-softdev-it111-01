@@ -10,9 +10,8 @@ use Yii;
  * @property integer $id
  * @property string $section_name
  * @property string $section_level
- * @property integer $adviser_id
  *
- * @property Adviser $adviser
+ * @property Adviser[] $advisers
  * @property Student[] $students
  * @property Subject[] $subjects
  */
@@ -32,8 +31,7 @@ class Section extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['section_name', 'section_level', 'adviser_id'], 'required'],
-            [['adviser_id'], 'integer'],
+            [['section_name', 'section_level'], 'required'],
             [['section_name', 'section_level'], 'string', 'max' => 45]
         ];
     }
@@ -45,18 +43,17 @@ class Section extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'section_name' => 'Section Name',
-            'section_level' => 'Section Level',
-            'adviser_id' => 'Adviser ID',
+            'section_name' => 'Name',
+            'section_level' => 'Level',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getAdviser()
+    public function getAdvisers()
     {
-        return $this->hasOne(Adviser::className(), ['id' => 'adviser_id']);
+        return $this->hasMany(Adviser::className(), ['section_id' => 'id']);
     }
 
     /**

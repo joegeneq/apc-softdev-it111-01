@@ -47,11 +47,11 @@ class Parents extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'parents_full_name' => 'Parents Full Name',
-            'parents_contact_number' => 'Parents Contact Number',
-            'parents_address' => 'Parents Address',
-            'student_id' => 'Student ID',
-            'user_id' => 'User ID',
+            'parents_full_name' => 'Full Name',
+            'parents_contact_number' => 'Contact Number',
+            'parents_address' => 'Address',
+            'student_id' => 'Student Name',
+            'user_id' => 'User Account Name',
         ];
     }
 

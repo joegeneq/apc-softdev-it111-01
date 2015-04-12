@@ -18,7 +18,7 @@ class SectionSearch extends Section
     public function rules()
     {
         return [
-            [['id', 'adviser_id'], 'integer'],
+            [['id'], 'integer'],
             [['section_name', 'section_level'], 'safe'],
         ];
     }
@@ -57,7 +57,6 @@ class SectionSearch extends Section
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'adviser_id' => $this->adviser_id,
         ]);
 
         $query->andFilterWhere(['like', 'section_name', $this->section_name])

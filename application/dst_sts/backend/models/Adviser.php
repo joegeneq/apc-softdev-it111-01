@@ -11,9 +11,10 @@ use Yii;
  * @property string $adviser_full_name
  * @property string $adviser_gender
  * @property integer $user_id
+ * @property integer $section_id
  *
+ * @property Section $section
  * @property User $user
- * @property Section[] $sections
  */
 class Adviser extends \yii\db\ActiveRecord
 {
@@ -32,8 +33,8 @@ class Adviser extends \yii\db\ActiveRecord
     {
         return [
             [['adviser_gender'], 'string'],
-            [['user_id'], 'required'],
-            [['user_id'], 'integer'],
+            [['user_id', 'section_id'], 'required'],
+            [['user_id', 'section_id'], 'integer'],
             [['adviser_full_name'], 'string', 'max' => 255]
         ];
     }
@@ -45,10 +46,19 @@ class Adviser extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'adviser_full_name' => 'Adviser Full Name',
-            'adviser_gender' => 'Adviser Gender',
-            'user_id' => 'User ID',
+            'adviser_full_name' => 'Full Name',
+            'adviser_gender' => 'Gender',
+            'user_id' => 'User Account Name',
+            'section_id' => 'Section Name',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSection()
+    {
+        return $this->hasOne(Section::className(), ['id' => 'section_id']);
     }
 
     /**
@@ -57,13 +67,5 @@ class Adviser extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getSections()
-    {
-        return $this->hasMany(Section::className(), ['adviser_id' => 'id']);
     }
 }

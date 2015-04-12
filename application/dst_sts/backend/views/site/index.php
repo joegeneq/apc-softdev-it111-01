@@ -19,10 +19,10 @@ $this->title = 'DCarmelite School of Taguig - Student Tracking System';
         <p align="center">
             <?= Html::a('Add User', ['site/signup'], ['class' => 'btn btn-success']) ?>
             <?= Html::a('Events', ['event/index'], ['class' => 'btn btn-success']) ?>
-            <?= Html::a('Students', ['student/index'], ['class' => 'btn btn-success']) ?>
-            <?= Html::a('Parents', ['parents/index'], ['class' => 'btn btn-success']) ?>
             <?= Html::a('Advisers', ['adviser/index'], ['class' => 'btn btn-success']) ?>
             <?= Html::a('Sections', ['section/index'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('Students', ['student/index'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('Parents', ['parents/index'], ['class' => 'btn btn-success']) ?>            
         </p>
 
         </br>

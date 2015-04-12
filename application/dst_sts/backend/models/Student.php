@@ -54,15 +54,15 @@ class Student extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'student_id_number' => 'Student Id Number',
-            'student_full_name' => 'Student Full Name',
-            'student_gender' => 'Student Gender',
-            'student_birthdate' => 'Student Birthdate',
-            'student_address' => 'Student Address',
-            'student_admission_date' => 'Student Admission Date',
-            'student_level' => 'Student Level',
-            'student_status' => 'Student Status',
-            'section_id' => 'Section ID',
+            'student_id_number' => 'Id Number',
+            'student_full_name' => 'Full Name',
+            'student_gender' => 'Gender',
+            'student_birthdate' => 'Birthdate',
+            'student_address' => 'Address',
+            'student_admission_date' => 'Admission Date',
+            'student_level' => 'Level',
+            'student_status' => 'Status',
+            'section_id' => 'Section Name',
         ];
     }
 
