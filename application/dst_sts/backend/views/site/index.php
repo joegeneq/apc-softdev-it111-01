@@ -19,15 +19,12 @@ $this->title = 'DCarmelite School of Taguig - Student Tracking System';
     
         <h1 align='center'>Welcome back, <?=Yii::$app->user->identity->first_name?>!<br><br>Admin Portals:</h1>
         <p align="center">
-<<<<<<< HEAD
             <?= Html::a('Add User', ['site/signup'], ['class' => 'btn btn-success']) ?>
-=======
             <?= Html::button('Add User', [/*'site/signup'], [*/'value'=>Url::to('index.php?r=site/signup'),'class' => 'btn btn-success','id'=>'modalAddUserbtn']) ?>
             <?= Html::a('Events', ['event/index'], ['class' => 'btn btn-success']) ?>
             <?= Html::a('Students', ['student/index'], ['class' => 'btn btn-success']) ?>
             <?= Html::a('Parents', ['parents/index'], ['class' => 'btn btn-success']) ?>
             <br><br>
->>>>>>> a665cb5ebf94b6dde9ba8de0a163e3aa581bb44d
             <?= Html::a('Advisers', ['adviser/index'], ['class' => 'btn btn-success']) ?>
             <?= Html::a('Sections', ['section/index'], ['class' => 'btn btn-success']) ?>
             <?= Html::a('Students', ['student/index'], ['class' => 'btn btn-success']) ?>            
