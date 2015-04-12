@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Event */
+/* @var $model backend\models\Event */
 
 $this->title = 'Update Event: ' . ' ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Events', 'url' => ['index']];

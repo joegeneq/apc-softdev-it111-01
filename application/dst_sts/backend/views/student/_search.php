@@ -19,13 +19,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'student_id_number') ?>
 
-    <?= $form->field($model, 'student_first_name') ?>
-
-    <?= $form->field($model, 'student_last_name') ?>
+    <?= $form->field($model, 'student_full_name') ?>
 
     <?= $form->field($model, 'student_gender') ?>
 
-    <?php // echo $form->field($model, 'student_birthdate') ?>
+    <?= $form->field($model, 'student_birthdate') ?>
 
     <?php // echo $form->field($model, 'student_address') ?>
 

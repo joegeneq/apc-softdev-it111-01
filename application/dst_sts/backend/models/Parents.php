@@ -11,8 +11,8 @@ use Yii;
  * @property string $parents_full_name
  * @property string $parents_contact_number
  * @property string $parents_address
- * @property integer $user_id
  * @property integer $student_id
+ * @property integer $user_id
  *
  * @property Student $student
  * @property User $user
@@ -33,8 +33,8 @@ class Parents extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['parents_full_name', 'user_id', 'student_id'], 'required'],
-            [['user_id', 'student_id'], 'integer'],
+            [['parents_full_name', 'student_id', 'user_id'], 'required'],
+            [['student_id', 'user_id'], 'integer'],
             [['parents_full_name', 'parents_address'], 'string', 'max' => 255],
             [['parents_contact_number'], 'string', 'max' => 45]
         ];
@@ -47,11 +47,11 @@ class Parents extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'parents_full_name' => 'Full Name',
-            'parents_contact_number' => 'Contact Number',
-            'parents_address' => 'Address',
-            'user_id' => "Parent's Name",
+            'parents_full_name' => 'Parents Full Name',
+            'parents_contact_number' => 'Parents Contact Number',
+            'parents_address' => 'Parents Address',
             'student_id' => 'Student ID',
+            'user_id' => 'User ID',
         ];
     }
 

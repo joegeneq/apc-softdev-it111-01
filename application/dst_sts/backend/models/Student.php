@@ -9,8 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property string $student_id_number
- * @property string $student_first_name
- * @property string $student_last_name
+ * @property string $student_full_name
  * @property string $student_gender
  * @property string $student_birthdate
  * @property string $student_address
@@ -39,12 +38,11 @@ class Student extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['student_id_number', 'student_first_name', 'student_last_name', 'student_gender', 'student_admission_date', 'student_level', 'student_status', 'section_id'], 'required'],
-            ['student_id_number', 'unique', 'targetClass' => '\backend\models\Student', 'message' => 'This student ID has already been taken.'],
-            [['section_id'], 'integer'],
+            [['student_id_number', 'student_full_name', 'student_gender', 'student_admission_date', 'student_level', 'student_status', 'section_id'], 'required'],
             [['student_gender', 'student_status'], 'string'],
             [['student_birthdate', 'student_admission_date'], 'safe'],
-            [['student_id_number', 'student_first_name', 'student_last_name'], 'string', 'max' => 45],
+            [['student_level', 'section_id'], 'integer'],
+            [['student_id_number', 'student_full_name'], 'string', 'max' => 45],
             [['student_address'], 'string', 'max' => 255]
         ];
     }
@@ -56,16 +54,15 @@ class Student extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'student_id_number' => 'Id Number',
-            'student_first_name' => 'First Name',
-            'student_last_name' => 'Last Name',
-            'student_gender' => 'Gender',
-            'student_birthdate' => 'Birthdate',
-            'student_address' => 'Address',
-            'student_admission_date' => 'Admission Date',
-            'student_level' => 'Level',
-            'student_status' => 'Status',
-            'section_id' => 'Section Name',
+            'student_id_number' => 'Student Id Number',
+            'student_full_name' => 'Student Full Name',
+            'student_gender' => 'Student Gender',
+            'student_birthdate' => 'Student Birthdate',
+            'student_address' => 'Student Address',
+            'student_admission_date' => 'Student Admission Date',
+            'student_level' => 'Student Level',
+            'student_status' => 'Student Status',
+            'section_id' => 'Section ID',
         ];
     }
 

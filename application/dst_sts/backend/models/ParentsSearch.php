@@ -18,7 +18,7 @@ class ParentsSearch extends Parents
     public function rules()
     {
         return [
-            [['id', 'user_id', 'student_id'], 'integer'],
+            [['id', 'student_id', 'user_id'], 'integer'],
             [['parents_full_name', 'parents_contact_number', 'parents_address'], 'safe'],
         ];
     }
@@ -57,8 +57,8 @@ class ParentsSearch extends Parents
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'user_id' => $this->user_id,
             'student_id' => $this->student_id,
+            'user_id' => $this->user_id,
         ]);
 
         $query->andFilterWhere(['like', 'parents_full_name', $this->parents_full_name])

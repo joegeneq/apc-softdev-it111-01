@@ -2,9 +2,6 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use yii\bootstrap\Modal;
-use yii\helpers\Url;
-use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\SectionSearch */
@@ -19,24 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::button('Create Section', [/*'create'], [*/'value'=>Url::to('index.php?r=section/create'),'class' => 'btn btn-success','id'=>'modalAddSectionbtn']) ?>
+        <?= Html::a('Create Section', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php
-
-        Modal::begin([
-                'header'=>'<h4>Add Section</h4>',
-                'id'=>'modalAddSection',
-                'size'=>'modal-lg',
-            ]);
-
-        echo "<div id='modalContAddSection'></div>";
-
-        Modal::end();
-
-        ?>
-
-    <?php Pjax::begin(); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -51,6 +33,5 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-    <?php Pjax::end(); ?>
 
 </div>
