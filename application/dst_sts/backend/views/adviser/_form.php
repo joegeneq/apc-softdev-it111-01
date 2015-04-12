@@ -17,7 +17,7 @@ use backend\models\Section;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'user_id')->dropDownList(
-        ArrayHelper::map(User::find()->all(),'id','full_name'),
+        ArrayHelper::map(User::find()->where(['user_type'=>'Adviser'])->all(),'id','full_name'),
         ['prompt'=>"Select account full name"]
     ) ?>
 
