@@ -19,7 +19,6 @@ $this->title = 'DCarmelite School of Taguig - Student Tracking System';
     
         <h1 align='center'>Welcome back, <?=Yii::$app->user->identity->first_name?>!<br><br>Admin Portals:</h1>
         <p align="center">
-            <?= Html::a('Add User', ['site/signup'], ['class' => 'btn btn-success']) ?>
             <?= Html::button('Add User', [/*'site/signup'], [*/'value'=>Url::to('index.php?r=site/signup'),'class' => 'btn btn-success','id'=>'modalAddUserbtn']) ?>
             <?= Html::a('Events', ['event/index'], ['class' => 'btn btn-success']) ?>
             <?= Html::a('Students', ['student/index'], ['class' => 'btn btn-success']) ?>
@@ -27,10 +26,6 @@ $this->title = 'DCarmelite School of Taguig - Student Tracking System';
             <br><br>
             <?= Html::a('Advisers', ['adviser/index'], ['class' => 'btn btn-success']) ?>
             <?= Html::a('Sections', ['section/index'], ['class' => 'btn btn-success']) ?>
-            <?= Html::a('Students', ['student/index'], ['class' => 'btn btn-success']) ?>            
-            <br><br>
-            <?= Html::a('Parents', ['parents/index'], ['class' => 'btn btn-success']) ?>
-            <?= Html::a('Events', ['event/index'], ['class' => 'btn btn-success']) ?>
             
         </p>
 
