@@ -19,7 +19,7 @@ class ParentsSearch extends Parents
     {
         return [
             [['id', 'user_id', 'student_id'], 'integer'],
-            [['parents_first_name', 'parents_last_name', 'parents_contact_number', 'parents_address'], 'safe'],
+            [['parents_full_name', 'parents_contact_number', 'parents_address'], 'safe'],
         ];
     }
 
@@ -61,8 +61,7 @@ class ParentsSearch extends Parents
             'student_id' => $this->student_id,
         ]);
 
-        $query->andFilterWhere(['like', 'parents_first_name', $this->parents_first_name])
-            ->andFilterWhere(['like', 'parents_last_name', $this->parents_last_name])
+        $query->andFilterWhere(['like', 'parents_full_name', $this->parents_full_name])
             ->andFilterWhere(['like', 'parents_contact_number', $this->parents_contact_number])
             ->andFilterWhere(['like', 'parents_address', $this->parents_address]);
 

@@ -56,12 +56,12 @@ use backend\models\Section;
             ]
     ]);?>
 
-    <?= $form->field($model, 'student_level')->dropDownList([ '1' => 'Grade 1', 
-                                                                '2' => 'Grade 2', 
-                                                                '3' => 'Grade 3',
-                                                                '4' => 'Grade 4',
-                                                                '5' => 'Grade 5',
-                                                                '6' => 'Grade 6',
+    <?= $form->field($model, 'student_level')->dropDownList([ 'Grade 1' => 'Grade 1', 
+                                                                'Grade 2' => 'Grade 2', 
+                                                                'Grade 3' => 'Grade 3',
+                                                                'Grade 4' => 'Grade 4',
+                                                                'Grade 5' => 'Grade 5',
+                                                                'Grade 6' => 'Grade 6',
                                                             ], ['prompt' => 'Select level']) ?>
 
     <?= $form->field($model, 'student_status')->dropDownList([ 'Enrolled' => 'Enrolled', 'LOA - Leave of Absence' => 'LOA - Leave of Absence', 'AWOL - Absence Without Leave' => 'AWOL - Absence Without Leave' ], ['prompt' => 'Select status']) ?>

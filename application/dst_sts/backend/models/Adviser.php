@@ -8,10 +8,11 @@ use Yii;
  * This is the model class for table "adviser".
  *
  * @property integer $id
- * @property string $adviser_first_name
- * @property string $adviser_last_name
+ * @property string $adviser_full_name
  * @property string $adviser_gender
+ * @property integer $user_id
  *
+ * @property User $user
  * @property Section[] $sections
  */
 class Adviser extends \yii\db\ActiveRecord
@@ -30,9 +31,10 @@ class Adviser extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['adviser_first_name', 'adviser_last_name'], 'required'],
             [['adviser_gender'], 'string'],
-            [['adviser_first_name', 'adviser_last_name'], 'string', 'max' => 45]
+            [['user_id'], 'required'],
+            [['user_id'], 'integer'],
+            [['adviser_full_name'], 'string', 'max' => 255]
         ];
     }
 
@@ -43,10 +45,18 @@ class Adviser extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'adviser_first_name' => 'Adviser First Name',
-            'adviser_last_name' => 'Adviser Last Name',
-            'adviser_gender' => 'Adviser Gender',
+            'adviser_full_name' => 'Full Name',
+            'adviser_gender' => 'Gender',
+            'user_id' => "Adviser's Name",
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 
     /**

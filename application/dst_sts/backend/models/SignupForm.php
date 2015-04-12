@@ -15,6 +15,7 @@ class SignupForm extends Model
     public $password;
 
     public $user_type;
+    public $full_name;
 
     /**
      * @inheritdoc
@@ -24,6 +25,7 @@ class SignupForm extends Model
         return [
             ['username', 'filter', 'filter' => 'trim'],
             ['user_type', 'required'],
+            ['full_name', 'required'],
             ['username', 'required'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
@@ -49,6 +51,7 @@ class SignupForm extends Model
             $user = new User();
             $user->user_type = $this->user_type;
             $user->username = $this->username;
+            $user->full_name = $this->full_name;
             $user->email = $this->email;
             $user->setPassword($this->password);
             $user->generateAuthKey();

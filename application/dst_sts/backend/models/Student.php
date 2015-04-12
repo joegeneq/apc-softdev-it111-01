@@ -40,7 +40,8 @@ class Student extends \yii\db\ActiveRecord
     {
         return [
             [['student_id_number', 'student_first_name', 'student_last_name', 'student_gender', 'student_admission_date', 'student_level', 'student_status', 'section_id'], 'required'],
-            [['student_level', 'section_id'], 'integer'],
+            ['student_id_number', 'unique', 'targetClass' => '\backend\models\Student', 'message' => 'This student ID has already been taken.'],
+            [['section_id'], 'integer'],
             [['student_gender', 'student_status'], 'string'],
             [['student_birthdate', 'student_admission_date'], 'safe'],
             [['student_id_number', 'student_first_name', 'student_last_name'], 'string', 'max' => 45],
@@ -64,7 +65,7 @@ class Student extends \yii\db\ActiveRecord
             'student_admission_date' => 'Admission Date',
             'student_level' => 'Level',
             'student_status' => 'Status',
-            'section_id' => 'Section ID',
+            'section_id' => 'Section Name',
         ];
     }
 

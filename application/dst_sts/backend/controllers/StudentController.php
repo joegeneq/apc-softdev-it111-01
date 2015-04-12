@@ -63,8 +63,9 @@ class StudentController extends Controller
         $model = new Student();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            //return $this->redirect(['view', 'id' => $model->id]);
-            $this->view->params['paramStudentId'] = $model->student_id_number;
+            Yii::$app->session->setFlash('studentId', $model->id);
+            Yii::$app->session->setFlash('studentFirstName', $model->student_first_name);
+            Yii::$app->session->setFlash('studentLastName', $model->student_last_name);
             return $this->redirect(['parents/create']);
         } else {
             return $this->renderAjax('create', [

@@ -17,15 +17,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'parents_first_name') ?>
-
-    <?= $form->field($model, 'parents_last_name') ?>
+    <?= $form->field($model, 'parents_full_name') ?>
 
     <?= $form->field($model, 'parents_contact_number') ?>
 
     <?= $form->field($model, 'parents_address') ?>
 
-    <?php // echo $form->field($model, 'user_id') ?>
+    <?= $form->field($model, 'user_id') ?>
 
     <?php // echo $form->field($model, 'student_id') ?>
 

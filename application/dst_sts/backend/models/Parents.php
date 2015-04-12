@@ -2,16 +2,13 @@
 
 namespace backend\models;
 
-use common\models\User;
-
 use Yii;
 
 /**
  * This is the model class for table "parents".
  *
  * @property integer $id
- * @property string $parents_first_name
- * @property string $parents_last_name
+ * @property string $parents_full_name
  * @property string $parents_contact_number
  * @property string $parents_address
  * @property integer $user_id
@@ -36,10 +33,10 @@ class Parents extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['parents_first_name', 'parents_last_name', 'user_id', 'student_id'], 'required'],
+            [['parents_full_name', 'user_id', 'student_id'], 'required'],
             [['user_id', 'student_id'], 'integer'],
-            [['parents_first_name', 'parents_last_name', 'parents_contact_number'], 'string', 'max' => 45],
-            [['parents_address'], 'string', 'max' => 255]
+            [['parents_full_name', 'parents_address'], 'string', 'max' => 255],
+            [['parents_contact_number'], 'string', 'max' => 45]
         ];
     }
 
@@ -50,11 +47,10 @@ class Parents extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'parents_first_name' => 'Parent First Name',
-            'parents_last_name' => 'Parent Last Name',
-            'parents_contact_number' => 'Parent Contact Number',
-            'parents_address' => 'Parent Address',
-            'user_id' => 'Parent Username',
+            'parents_full_name' => 'Full Name',
+            'parents_contact_number' => 'Contact Number',
+            'parents_address' => 'Address',
+            'user_id' => "Parent's Name",
             'student_id' => 'Student ID',
         ];
     }

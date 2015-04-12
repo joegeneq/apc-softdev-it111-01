@@ -29,8 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
-                <?= $form->field($model, 'user_type')->dropDownList([ 'parent' => 'Parent', 'instructor' => 'Instructor', ], ['prompt' => 'Select user type']) ?>
+                <?= $form->field($model, 'user_type')->dropDownList([ 'Parent' => 'Parent', 'Adviser' => 'Adviser', ], ['prompt' => 'Select user type']) ?>
                 <?= $form->field($model, 'username') ?>
+                <?= $form->field($model, 'full_name') ?>
                 <?= $form->field($model, 'email') ?>
                 <?= $form->field($model, 'password')->passwordInput() ?>
                 <div class="form-group">

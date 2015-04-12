@@ -34,12 +34,14 @@ $this->title = 'DCarmelite School of Taguig - Student Tracking System';
             <p align="center"><?= Html::a('Add User', ['site/signup'], ['class' => 'btn btn-success']) ?></p>
 
         <?php 
-        } else if(Yii::$app->user->identity->user_type == 'parent') { ?>
-            <h1 align='center'>Welcome back, <?=Yii::$app->user->identity->first_name?>...Parent</h1>
+        } else if(Yii::$app->user->identity->user_type == 'Parent') { ?>
+            <h1 align='center'>Welcome back, <?=Yii::$app->user->identity->full_name ?></h1>
+            <p align='center'><?= Html::a('Attendance Record', ['attendance/index'], ['class' => 'btn btn-success']) ?></p>
 
         <?php 
-        } else if(Yii::$app->user->identity->user_type == 'instructor') { ?>
-            <h1 align='center'>Welcome back, <?=Yii::$app->user->identity->first_name?>...Instructor</h1>
+        } else if(Yii::$app->user->identity->user_type == 'Adviser') { ?>
+            <h1 align='center'>Welcome back, <?=Yii::$app->user->identity->full_name ?></h1>
+            <p align='center'><?= Html::a('Attendance Record', ['attendance/index'], ['class' => 'btn btn-success']) ?></p>
 
         <?php 
         } 

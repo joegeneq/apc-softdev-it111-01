@@ -45,11 +45,11 @@ class Event extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'event_title' => 'Event Title',
-            'event_date' => 'Event Date',
-            'event_venue' => 'Event Venue',
-            'event_description' => 'Event Description',
-            'event_status' => 'Event Status',
+            'event_title' => 'Title',
+            'event_date' => 'Date',
+            'event_venue' => 'Venue',
+            'event_description' => 'Description',
+            'event_status' => 'Status',
         ];
     }
 }

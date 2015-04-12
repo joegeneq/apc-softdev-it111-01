@@ -18,8 +18,8 @@ class AdviserSearch extends Adviser
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['adviser_first_name', 'adviser_last_name', 'adviser_gender'], 'safe'],
+            [['id', 'user_id'], 'integer'],
+            [['adviser_full_name', 'adviser_gender'], 'safe'],
         ];
     }
 
@@ -57,10 +57,10 @@ class AdviserSearch extends Adviser
 
         $query->andFilterWhere([
             'id' => $this->id,
+            'user_id' => $this->user_id,
         ]);
 
-        $query->andFilterWhere(['like', 'adviser_first_name', $this->adviser_first_name])
-            ->andFilterWhere(['like', 'adviser_last_name', $this->adviser_last_name])
+        $query->andFilterWhere(['like', 'adviser_full_name', $this->adviser_full_name])
             ->andFilterWhere(['like', 'adviser_gender', $this->adviser_gender]);
 
         return $dataProvider;
