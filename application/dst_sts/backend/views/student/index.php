@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\bootstrap\Modal;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\StudentSearch */
@@ -16,8 +18,22 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Student', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::button('Create Student', [/*'create'], [*/'value'=>Url::to('index.php?r=student/create'),'class' => 'btn btn-success','id'=>'modalAddStudentbtn']) ?>
     </p>
+
+    <?php
+
+        Modal::begin([
+                'header'=>'<h4>Add Student</h4>',
+                'id'=>'modalAddStudent',
+                'size'=>'modal-lg',
+            ]);
+
+        echo "<div id='modalContAddStudent'></div>";
+
+        Modal::end();
+
+    ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

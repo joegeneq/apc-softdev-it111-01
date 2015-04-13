@@ -66,7 +66,7 @@ class StudentController extends Controller
             Yii::$app->session->setFlash('studentId', $model->id);
             return $this->redirect(['parents/create']);
         } else {
-            return $this->render('create', [
+            return $this->renderAjax('create', [
                 'model' => $model,
             ]);
         }

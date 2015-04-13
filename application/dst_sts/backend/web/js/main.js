@@ -25,5 +25,11 @@ $(function(){
 			.load($(this).attr('value'));
 		})
 
+		$('#modalAddStudentbtn').click(function(){
+			$('#modalAddStudent').modal('show')
+			.find('#modalContAddStudent')
+			.load($(this).attr('value'));
+		})
+
 
 });
