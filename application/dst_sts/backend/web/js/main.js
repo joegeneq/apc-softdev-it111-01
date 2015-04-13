@@ -13,4 +13,11 @@ $(function(){
 			.load($(this).attr('value'));
 		})
 
+		$('#modalAddSectionbtn').click(function(){
+			$('#modalAddSection').modal('show')
+			.find('#modalContAddSection')
+			.load($(this).attr('value'));
+		})
+
+
 });

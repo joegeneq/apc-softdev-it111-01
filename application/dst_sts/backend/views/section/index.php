@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\bootstrap\Modal;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\SectionSearch */
@@ -16,8 +18,22 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Section', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::button('Create Section', [/*'create'], [*/'value'=>Url::to('index.php?r=section/create'),'class' => 'btn btn-success','id'=>'modalAddSectionbtn']) ?>
     </p>
+
+    <?php
+
+        Modal::begin([
+                'header'=>'<h4>Add Section</h4>',
+                'id'=>'modalAddSection',
+                'size'=>'modal-lg',
+            ]);
+
+        echo "<div id='modalContAddSection'></div>";
+
+        Modal::end();
+
+    ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
