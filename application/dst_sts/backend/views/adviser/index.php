@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\bootstrap\Modal;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\AdviserSearch */
@@ -16,8 +18,22 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Adviser', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::button('Create Adviser', [/*'create'], [*/'value'=>Url::to('index.php?r=adviser/create'),'class' => 'btn btn-success','id'=>'modalAddAdviserbtn']) ?>
     </p>
+
+    <?php
+
+        Modal::begin([
+                'header'=>'<h4>Add Adviser</h4>',
+                'id'=>'modalAddAdviser',
+                'size'=>'modal-lg',
+            ]);
+
+        echo "<div id='modalContAddAdviser'></div>";
+
+        Modal::end();
+
+    ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
