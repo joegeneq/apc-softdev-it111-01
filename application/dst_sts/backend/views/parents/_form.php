@@ -17,14 +17,11 @@ use backend\models\Student;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'user_id')->dropDownList(
-        ArrayHelper::map(User::find()->all(),'id','full_name'),
+        ArrayHelper::map(User::find()->where(['user_type'=>'Parent'])->all(),'id','full_name'),
         ['prompt'=>"Select parent's name"]
     ) ?>
 
-    <?= $form->field($model, 'student_id')->dropDownList(
-        ArrayHelper::map(Student::find()->all(),'id','student_full_name'),
-        ['prompt'=>"Select child's name"]
-    ) ?>
+    <?= $form->field($model, 'student_id')->hiddenInput(['value'=>Yii::$app->session->getFlash('studentId')])->label(false) ?>
 
     <?= $form->field($model, 'parents_full_name')->textInput(['maxlength' => 255]) ?>
 
