@@ -2,8 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\datepicker\DatePicker;
 
+use dosamigos\datepicker\DatePicker;
 use yii\helpers\ArrayHelper;
 use backend\models\Section;
 
@@ -18,7 +18,7 @@ use backend\models\Section;
 
     <?= $form->field($model, 'section_id')->dropDownList(
         ArrayHelper::map(Section::find()->all(),'id','section_name'),
-        ['prompt'=>"Select section"]
+        ['prompt'=>"Select section name"]
     ) ?>
 
     <?= $form->field($model, 'student_id_number')->textInput(['maxlength' => 45]) ?>
@@ -36,6 +36,7 @@ use backend\models\Section;
             'clientOptions' => [
                 'autoclose' => true,
                 'format' => 'yyyy-mm-dd',
+                //'startDate' => '+0',
             ]
     ]);?>
 
@@ -50,6 +51,7 @@ use backend\models\Section;
             'clientOptions' => [
                 'autoclose' => true,
                 'format' => 'yyyy-mm-dd',
+                //'startDate' => '+0',
             ]
     ]);?>
 

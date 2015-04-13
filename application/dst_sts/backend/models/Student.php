@@ -14,7 +14,7 @@ use Yii;
  * @property string $student_birthdate
  * @property string $student_address
  * @property string $student_admission_date
- * @property integer $student_level
+ * @property string $student_level
  * @property string $student_status
  * @property integer $section_id
  *
@@ -39,10 +39,11 @@ class Student extends \yii\db\ActiveRecord
     {
         return [
             [['student_id_number', 'student_full_name', 'student_gender', 'student_admission_date', 'student_level', 'student_status', 'section_id'], 'required'],
+            ['student_id_number', 'unique', 'targetClass' => '\backend\models\Student', 'message' => 'This ID number has already been taken.'],
             [['student_gender', 'student_status'], 'string'],
             [['student_birthdate', 'student_admission_date'], 'safe'],
-            [['student_level', 'section_id'], 'integer'],
-            [['student_id_number', 'student_full_name'], 'string', 'max' => 45],
+            [['section_id'], 'integer'],
+            [['student_id_number', 'student_full_name', 'student_level'], 'string', 'max' => 45],
             [['student_address'], 'string', 'max' => 255]
         ];
     }
