@@ -46,7 +46,7 @@ class Attendance extends \yii\db\ActiveRecord
             'id' => 'ID',
             'attendance_date' => 'Attendance Date',
             'attendance_status' => 'Attendance Status',
-            'student_id' => 'Student ID',
+            'student_id' => 'Student Name',
         ];
     }
 

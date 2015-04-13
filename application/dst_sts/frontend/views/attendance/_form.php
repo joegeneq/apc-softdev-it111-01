@@ -6,6 +6,7 @@ use yii\widgets\ActiveForm;
 use dosamigos\datepicker\DatePicker;
 use yii\helpers\ArrayHelper;
 use backend\models\Student;
+//use backend\models\Adviser;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Attendance */
@@ -17,9 +18,21 @@ use backend\models\Student;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'student_id')->dropDownList(
-        ArrayHelper::map(Student::find()->all(),'id','student_id_number'),
+        ArrayHelper::map(Student::find()->all(),'id','student_full_name'),
+        ['prompt'=>"Select students's full name"]
+    ) ?>
+
+    <!-- <?= $form->field($model, 'student_id')->dropDownList(
+        ArrayHelper::map(Student::find()->where(['section_id'=>("SELECT section_id FROM adviser WHERE user_id='".Yii::$app->user->identity->id."'")])->all(),'id','student_id_number'),
+        ['prompt'=>"Select students's ID number"]
+    ) ?> -->
+
+    <!--
+    <?= $form->field($model, 'student_id')->dropDownList(
+        ArrayHelper::map(Student::find()->where(['section_id'=>'2'])->all(),'id','student_id_number'),
         ['prompt'=>"Select students's ID number"]
     ) ?>
+    -->
 
     <?= $form->field($model, 'attendance_date')->widget(
         DatePicker::className(), [
@@ -34,7 +47,7 @@ use backend\models\Student;
             ]
     ]);?>
 
-    <?= $form->field($model, 'attendance_status')->dropDownList([ 'Present' => 'Present', 'Absent' => 'Absent', 'N/A' => 'N/A', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'attendance_status')->dropDownList([ 'Present' => 'Present', 'Absent' => 'Absent', 'N/A' => 'N/A', ], ['prompt' => 'Select remarks']) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
