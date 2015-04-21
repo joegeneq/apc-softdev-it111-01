@@ -2,9 +2,6 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use yii\bootstrap\Modal;
-use yii\helpers\Url;
-use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\AdviserSearch */
@@ -19,24 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::button('Create Adviser', [/*'create'], [*/'value'=>Url::to('index.php?r=adviser/create'),'class' => 'btn btn-success','id'=>'modalAddAdviserbtn']) ?>
+        <?= Html::a('Create Adviser', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php
-
-        Modal::begin([
-                'header'=>'<h4>Add Adviser</h4>',
-                'id'=>'modalAddAdviser',
-                'size'=>'modal-lg',
-            ]);
-
-        echo "<div id='modalContAddAdviser'></div>";
-
-        Modal::end();
-
-    ?>
-
-    <?php Pjax::begin(); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -52,6 +34,5 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-    <?php Pjax::end(); ?>
 
 </div>

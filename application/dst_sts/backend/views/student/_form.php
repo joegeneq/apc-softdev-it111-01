@@ -25,7 +25,7 @@ use backend\models\Section;
 
     <?= $form->field($model, 'student_full_name')->textInput(['maxlength' => 45]) ?>
 
-    <?= $form->field($model, 'student_gender')->dropDownList([ 'Male' => 'Male', 'Female' => 'Female', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'student_gender')->dropDownList([ 'Male' => 'Male', 'Female' => 'Female', ], ['prompt' => 'Select gender']) ?>
 
     <?= $form->field($model, 'student_birthdate')->widget(
         DatePicker::className(), [
@@ -36,7 +36,6 @@ use backend\models\Section;
             'clientOptions' => [
                 'autoclose' => true,
                 'format' => 'yyyy-mm-dd',
-                //'startDate' => '+0',
             ]
     ]);?>
 
@@ -51,17 +50,18 @@ use backend\models\Section;
             'clientOptions' => [
                 'autoclose' => true,
                 'format' => 'yyyy-mm-dd',
-                //'startDate' => '+0',
             ]
     ]);?>
 
-    <?= $form->field($model, 'student_level')->dropDownList([ 'Grade 1' => 'Grade 1', 
-                                                                'Grade 2' => 'Grade 2', 
-                                                                'Grade 3' => 'Grade 3',
-                                                                'Grade 4' => 'Grade 4',
-                                                                'Grade 5' => 'Grade 5',
-                                                                'Grade 6' => 'Grade 6',
-                                                            ], ['prompt' => 'Select level']) ?>
+    <?= $form->field($model, 'student_level')->dropDownList([ 
+                                                            'Grade 1' => 'Grade 1',                                                    
+                                                            'Grade 2' => 'Grade 2', 
+                                                            'Grade 3' => 'Grade 3', 
+                                                            'Grade 4' => 'Grade 4', 
+                                                            'Grade 5' => 'Grade 5', 
+                                                            'Grade 6' => 'Grade 6', 
+                                                            ], 
+                                                            ['prompt' => 'Select grade level']) ?>
 
     <?= $form->field($model, 'student_status')->dropDownList([ 'Enrolled' => 'Enrolled', 'LOA - Leave of Absence' => 'LOA - Leave of Absence', 'AWOL - Absence Without Leave' => 'AWOL - Absence Without Leave', ], ['prompt' => '']) ?>
 

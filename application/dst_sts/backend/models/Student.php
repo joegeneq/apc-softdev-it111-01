@@ -39,10 +39,9 @@ class Student extends \yii\db\ActiveRecord
     {
         return [
             [['student_id_number', 'student_full_name', 'student_gender', 'student_admission_date', 'student_level', 'student_status', 'section_id'], 'required'],
-            ['student_id_number', 'unique', 'targetClass' => '\backend\models\Student', 'message' => 'This ID number has already been taken.'],
             [['student_gender', 'student_status'], 'string'],
             [['student_birthdate', 'student_admission_date'], 'safe'],
-            [['section_id'], 'integer'],
+            ['student_id_number', 'unique', 'targetClass' => '\backend\models\Student', 'message' => 'This ID number has already been taken.'],
             [['student_id_number', 'student_full_name', 'student_level'], 'string', 'max' => 45],
             [['student_address'], 'string', 'max' => 255]
         ];
@@ -55,13 +54,13 @@ class Student extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'student_id_number' => 'Id Number',
+            'student_id_number' => 'ID Number',
             'student_full_name' => 'Full Name',
             'student_gender' => 'Gender',
             'student_birthdate' => 'Birthdate',
             'student_address' => 'Address',
             'student_admission_date' => 'Admission Date',
-            'student_level' => 'Level',
+            'student_level' => 'Grade Level',
             'student_status' => 'Status',
             'section_id' => 'Section Name',
         ];

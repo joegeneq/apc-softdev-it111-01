@@ -6,7 +6,7 @@ use yii\widgets\ActiveForm;
 use dosamigos\datepicker\DatePicker;
 use yii\helpers\ArrayHelper;
 use backend\models\Student;
-//use backend\models\Adviser;
+use backend\models\Section;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Attendance */
@@ -17,22 +17,21 @@ use backend\models\Student;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'student_id')->dropDownList(
+    <!-- <?= $form->field($model, 'student_id')->dropDownList(
         ArrayHelper::map(Student::find()->all(),'id','student_full_name'),
-        ['prompt'=>"Select students's full name"]
+        ['prompt'=>"Select students' full name"]
+    ) ?> -->
+
+    <?= $form->field($model, 'student_id')->dropDownList(
+        ArrayHelper::map(Student::find()->where("section_id=(SELECT section_id FROM adviser WHERE user_id=".Yii::$app->user->identity->id.")")->all(),'id','student_full_name'),
+        ['prompt'=>"Select students' full name"]
     ) ?>
 
     <!-- <?= $form->field($model, 'student_id')->dropDownList(
-        ArrayHelper::map(Student::find()->where(['section_id'=>("SELECT section_id FROM adviser WHERE user_id='".Yii::$app->user->identity->id."'")])->all(),'id','student_id_number'),
+        ArrayHelper::map(Student::find()->where(['section_id'=>'1'])->all(),'id','student_id_number'),
         ['prompt'=>"Select students's ID number"]
     ) ?> -->
-
-    <!--
-    <?= $form->field($model, 'student_id')->dropDownList(
-        ArrayHelper::map(Student::find()->where(['section_id'=>'2'])->all(),'id','student_id_number'),
-        ['prompt'=>"Select students's ID number"]
-    ) ?>
-    -->
+    
 
     <?= $form->field($model, 'attendance_date')->widget(
         DatePicker::className(), [

@@ -119,6 +119,15 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
+    public function actionCalendar()
+    {
+        if (Yii::$app->user->isGuest) {
+            throw new ForbiddenHttpException('Please login to access this page.');
+        } else {
+            return $this->render('calendar');
+        }        
+    }
+
     public function actionSignup()
     {
 

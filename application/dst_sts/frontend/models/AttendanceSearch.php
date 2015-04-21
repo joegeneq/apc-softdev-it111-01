@@ -18,8 +18,8 @@ class AttendanceSearch extends Attendance
     public function rules()
     {
         return [
-            [['id', 'student_id'], 'integer'],
-            [['attendance_date', 'attendance_status'], 'safe'],
+            [['id'], 'integer'],
+            [['attendance_date', 'student_id', 'attendance_status'], 'safe'],
         ];
     }
 
@@ -41,7 +41,12 @@ class AttendanceSearch extends Attendance
      */
     public function search($params)
     {
-        $query = Attendance::find();
+        if (Yii::$app->user->identity->user_type==='Adviser') {
+            $query = Attendance::find();
+        } else {
+            $query = Attendance::find()->where("student_id=(SELECT student_id FROM parents WHERE user_id=".Yii::$app->user->identity->id.")");
+        }
+        
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -55,13 +60,15 @@ class AttendanceSearch extends Attendance
             return $dataProvider;
         }
 
+        $query->joinWith('student');
+
         $query->andFilterWhere([
             'id' => $this->id,
             'attendance_date' => $this->attendance_date,
-            'student_id' => $this->student_id,
         ]);
 
-        $query->andFilterWhere(['like', 'attendance_status', $this->attendance_status]);
+        $query->andFilterWhere(['like', 'attendance_status', $this->attendance_status])
+              ->andFilterWhere(['like', 'student.student_full_name', $this->student_id]);
 
         return $dataProvider;
     }

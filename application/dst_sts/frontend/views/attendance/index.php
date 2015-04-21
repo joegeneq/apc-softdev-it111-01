@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
+use dosamigos\datepicker\DatePicker;
+
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\AttendanceSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -21,19 +23,69 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php } else {} ?>
     </p>
 
-    <?= GridView::widget([
+    <?php if(Yii::$app->user->identity->user_type=='Adviser') { ?>
+        <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'attendance_date',
+            //'id',
+            //'attendance_date',
+            [
+                'attribute'=>'student_id',
+                'value'=>'student.student_full_name',
+            ],
+            [
+                'attribute' => 'attendance_date',
+                'value' => 'attendance_date',
+                'options'=> ['class'=>'width-20'],
+                'format' => 'raw',
+                'filter' => DatePicker::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'attendance_date',
+                        'clientOptions' => [
+                            'autoclose' => false,
+                            'format' => 'yyyy-mm-dd',
+                        ]
+                ]),
+            ],
             'attendance_status',
-            'student_id',
+            //'student_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+        ]); ?>
+    <?php } else { ?>
+        <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
 
+            //'id',
+            //'attendance_date',
+            [
+                'attribute'=>'student_id',
+                'value'=>'student.student_full_name',
+            ],
+            [
+                'attribute' => 'attendance_date',
+                'value' => 'attendance_date',
+                'options'=> ['class'=>'width-20'],
+                'format' => 'raw',
+                'filter' => DatePicker::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'attendance_date',
+                        'clientOptions' => [
+                            'autoclose' => false,
+                            'format' => 'yyyy-mm-dd',
+                        ]
+                ]),
+            ],
+            'attendance_status',
+            //'student_id',
+        ],
+        ]); ?>
+    <?php } ?>
 </div>

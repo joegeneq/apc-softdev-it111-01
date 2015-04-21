@@ -14,13 +14,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'section_name')->textInput(['maxlength' => 45]) ?>
 
-    <?= $form->field($model, 'section_level')->dropDownList([ 'Grade 1' => 'Grade 1', 
-                                                                'Grade 2' => 'Grade 2', 
-                                                                'Grade 3' => 'Grade 3',
-                                                                'Grade 4' => 'Grade 4',
-                                                                'Grade 5' => 'Grade 5',
-                                                                'Grade 6' => 'Grade 6',
-                                                            ], ['prompt' => 'Select level']) ?>
+    <?= $form->field($model, 'section_level')->dropDownList([ 
+														    'Grade 1' => 'Grade 1', 												   
+														    'Grade 2' => 'Grade 2', 
+														    'Grade 3' => 'Grade 3', 
+														    'Grade 4' => 'Grade 4', 
+														    'Grade 5' => 'Grade 5', 
+														    'Grade 6' => 'Grade 6', 
+														    ], 
+	    													['prompt' => 'Select grade level']) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

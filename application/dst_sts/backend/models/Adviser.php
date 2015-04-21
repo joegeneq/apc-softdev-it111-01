@@ -34,7 +34,6 @@ class Adviser extends \yii\db\ActiveRecord
         return [
             [['adviser_gender'], 'string'],
             [['user_id', 'section_id'], 'required'],
-            [['user_id', 'section_id'], 'integer'],
             [['adviser_full_name'], 'string', 'max' => 255]
         ];
     }

@@ -17,16 +17,19 @@ use backend\models\Section;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'user_id')->dropDownList(
-        ArrayHelper::map(User::find()->where(['user_type'=>'Adviser'])->all(),'id','full_name'),
-        ['prompt'=>"Select account full name"]
+        ArrayHelper::map(User::find()->where(['user_type'=>'Adviser'])->all(),'id','username'),
+        ['prompt'=>"Select adviser's account username"]
     ) ?>
 
     <?= $form->field($model, 'section_id')->dropDownList(
         ArrayHelper::map(Section::find()->all(),'id','section_name'),
-        ['prompt'=>"Select section"]
+        ['prompt'=>"Select section name"]
     ) ?>
 
-    <?= $form->field($model, 'adviser_full_name')->textInput(['maxlength' => 255]) ?>
+    <?= $form->field($model, 'adviser_full_name')->dropDownList(
+        ArrayHelper::map(User::find()->where(['user_type'=>'Adviser'])->all(),'full_name','full_name'),
+        ['prompt'=>"Select adviser's full name"]
+    ) ?>
 
     <?= $form->field($model, 'adviser_gender')->dropDownList([ 'Male' => 'Male', 'Female' => 'Female', ], ['prompt' => '']) ?>
 

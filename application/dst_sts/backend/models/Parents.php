@@ -34,7 +34,7 @@ class Parents extends \yii\db\ActiveRecord
     {
         return [
             [['parents_full_name', 'student_id', 'user_id'], 'required'],
-            [['student_id', 'user_id'], 'integer'],
+            [['user_id'], 'integer'],
             [['parents_full_name', 'parents_address'], 'string', 'max' => 255],
             [['parents_contact_number'], 'string', 'max' => 45]
         ];
@@ -50,8 +50,8 @@ class Parents extends \yii\db\ActiveRecord
             'parents_full_name' => 'Full Name',
             'parents_contact_number' => 'Contact Number',
             'parents_address' => 'Address',
-            'student_id' => 'Student Name',
-            'user_id' => 'User Account Name',
+            'student_id' => 'Student ID',
+            'user_id' => 'Account Username',
         ];
     }
 

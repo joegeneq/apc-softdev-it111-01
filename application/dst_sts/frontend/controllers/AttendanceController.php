@@ -35,7 +35,11 @@ class AttendanceController extends Controller
      */
     public function actionIndex()
     {
-        
+
+    if (Yii::$app->user->isGuest) {
+            throw new ForbiddenHttpException('Please login to access this page.');
+
+        } else {
             $searchModel = new AttendanceSearch();
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -43,6 +47,7 @@ class AttendanceController extends Controller
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
             ]);
+        }            
     }
 
     /**
@@ -64,7 +69,11 @@ class AttendanceController extends Controller
      */
     public function actionCreate()
     {
-        if (Yii::$app->user->identity->user_type==='Adviser') {
+
+        if (Yii::$app->user->isGuest) {
+            throw new ForbiddenHttpException('This page can only be accessed by an adviser.');
+
+        } else if (Yii::$app->user->identity->user_type==='Adviser') {
             $model = new Attendance();
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -74,6 +83,7 @@ class AttendanceController extends Controller
                     'model' => $model,
                 ]);
             }
+
         } else {
             throw new ForbiddenHttpException('This page can only be accessed by the administrator.');
         }        

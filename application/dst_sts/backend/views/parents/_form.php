@@ -5,7 +5,6 @@ use yii\widgets\ActiveForm;
 
 use yii\helpers\ArrayHelper;
 use common\models\User;
-use backend\models\Student;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Parents */
@@ -17,13 +16,16 @@ use backend\models\Student;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'user_id')->dropDownList(
-        ArrayHelper::map(User::find()->where(['user_type'=>'Parent'])->all(),'id','full_name'),
-        ['prompt'=>"Select parent's name"]
+        ArrayHelper::map(User::find()->where(['user_type'=>'Parent'])->all(),'id','username'),
+        ['prompt'=>"Select parent's account username"]
     ) ?>
 
-    <?= $form->field($model, 'student_id')->hiddenInput(['value'=>Yii::$app->session->getFlash('studentId')])->label(false) ?>
+    <?= $form->field($model, 'student_id')->textInput(['value'=>Yii::$app->session->getFlash('studentId')]) ?>
 
-    <?= $form->field($model, 'parents_full_name')->textInput(['maxlength' => 255]) ?>
+    <?= $form->field($model, 'parents_full_name')->dropDownList(
+        ArrayHelper::map(User::find()->where(['user_type'=>'Parent'])->all(),'full_name','full_name'),
+        ['prompt'=>"Select parent's full name"]
+    ) ?>
 
     <?= $form->field($model, 'parents_contact_number')->textInput(['maxlength' => 45]) ?>
 

@@ -94,8 +94,13 @@ class SiteController extends Controller
             }
         }
 
-        return $this->renderAjax('signup', [
+        //return $this->renderAjax('signup', [
+        //    'model' => $model,
+        //]);
+
+        return $this->render('signup', [
             'model' => $model,
         ]);
+
     }
 }
