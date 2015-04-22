@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2015 at 12:03 PM
+-- Generation Time: Apr 22, 2015 at 05:48 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `attendance` (
   `attendance_date` date NOT NULL,
   `attendance_status` enum('Present','Absent','N/A') NOT NULL,
   `student_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `attendance`
@@ -88,7 +88,8 @@ INSERT INTO `attendance` (`id`, `attendance_date`, `attendance_status`, `student
 (2, '2015-04-18', 'Absent', 6),
 (3, '2015-04-19', 'Absent', 5),
 (4, '2015-04-17', 'Absent', 6),
-(5, '2015-04-17', 'Present', 7);
+(5, '2015-04-17', 'Present', 7),
+(6, '2015-04-22', 'Present', 5);
 
 -- --------------------------------------------------------
 
@@ -150,8 +151,7 @@ CREATE TABLE IF NOT EXISTS `parents` (
 
 INSERT INTO `parents` (`id`, `parents_full_name`, `parents_contact_number`, `parents_address`, `student_id`, `user_id`) VALUES
 (4, 'Nickolo Gonzales', '551-1591', 'Pasay City', 5, 10),
-(5, 'Nickolo Gonzales1', '834-7296', 'Morayta', 6, 13),
-(6, 'Nickolo Gonzales1', '123123', 'FTI', 7, 13);
+(5, 'Nickolo Gonzales1', '834-7296', 'Morayta', 6, 13);
 
 -- --------------------------------------------------------
 
@@ -232,7 +232,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `status` smallint(6) NOT NULL DEFAULT '10',
   `created_at` int(11) NOT NULL,
   `updated_at` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `user`
@@ -242,7 +242,9 @@ INSERT INTO `user` (`id`, `username`, `user_type`, `full_name`, `auth_key`, `pas
 (10, 'ndgonzales', 'Parent', 'Nickolo Gonzales', 'vyh10MmZP1mFvv78EC8Rlh1OQAGN3RnN', '$2y$13$VJrOyUP8vdWj3Qv.zt42ru6/iU71fg73nrtnwRP/7UIjbpsZtXjm.', NULL, 'nickologonzales@gmail.com', 10, 1429237955, 1429237955),
 (11, 'cbsamson', 'Adviser', 'Carl Samson', 'w3gto4tmr-JH3Zwniq-5S4awiP13lXuo', '$2y$13$R53vvuIo1HTCXTBJoC0ZSeAsY8qV2f1swGcgsChwNtvlKAn25N23W', NULL, 'cbsamson16@gmail.com', 10, 1429237967, 1429237967),
 (12, 'cbsamson1', 'Adviser', 'Carl Samson1', '6FoGXFSK-WGAw-z73sZYjCfHYV25EkFx', '$2y$13$iuYmv5e5aMDSvYO57mia7.7WkRiMky5AdhdUZ4fKJ5sfS7CnUSMKm', NULL, 'cbsamson1@gmail.com', 10, 1429240476, 1429240476),
-(13, 'ndgonzales1', 'Parent', 'Nickolo Gonzales1', 'NfH-zgkloXjr47cjjnYEjFVmVNueZEQ0', '$2y$13$zT.B9nSVVEtzX.ZFfxAghuiJyDxfDGerlgvcgIjJakAcDJ8I8FujS', NULL, 'nickologonzales1@gmail.com', 10, 1429240695, 1429240695);
+(13, 'ndgonzales1', 'Parent', 'Nickolo Gonzales1', 'NfH-zgkloXjr47cjjnYEjFVmVNueZEQ0', '$2y$13$zT.B9nSVVEtzX.ZFfxAghuiJyDxfDGerlgvcgIjJakAcDJ8I8FujS', NULL, 'nickologonzales1@gmail.com', 10, 1429240695, 1429240695),
+(14, 'cbsamson2', 'Parent', 'Carl Samson2', 'idfv6QJ-S-Oh9vrLaV6s09OXLLD967KW', '$2y$13$JnPmiTvB.5rQxLKKUbEmF.xcW4FKVJkAgzSSsya2AHirq6lMAlCmK', NULL, 'cbsamson2@gmail.com', 10, 1429674137, 1429674137),
+(15, 'ndgonzales2', 'Adviser', 'Nickolo Gonzales2', 'KVL_5A5oHuj98sxxbgfJYzqyu32UHmoB', '$2y$13$fCfcrXv96JFnxQZt5Z1SR.M1iKtoa4iaagKAnlYsF91BKO2Th5vRO', NULL, 'nickologonzales2@gmail.com', 10, 1429674160, 1429674160);
 
 --
 -- Indexes for dumped tables
@@ -326,7 +328,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `event`
 --
@@ -361,7 +363,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- Constraints for dumped tables
 --
