@@ -4,8 +4,8 @@ return [
         'db' => [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=localhost;dbname=dst_sts',
-            'username' => 'root',
-            'password' => '',
+            'username' => 'dst_sts',
+            'password' => 'dst_sts',
             'charset' => 'utf8',
         ],
         'mailer' => [
