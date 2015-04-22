@@ -32,7 +32,8 @@ class Section extends \yii\db\ActiveRecord
     {
         return [
             [['section_name', 'section_level'], 'required'],
-            [['section_name', 'section_level'], 'string', 'max' => 45]
+            [['section_name', 'section_level'], 'string', 'max' => 45],
+            ['section_name', 'unique', 'message' => "This section exists."],
         ];
     }
 

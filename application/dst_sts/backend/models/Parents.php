@@ -36,7 +36,9 @@ class Parents extends \yii\db\ActiveRecord
             [['parents_full_name', 'student_id', 'user_id'], 'required'],
             [['user_id'], 'integer'],
             [['parents_full_name', 'parents_address'], 'string', 'max' => 255],
-            [['parents_contact_number'], 'string', 'max' => 45]
+            [['parents_contact_number'], 'string', 'max' => 45],
+            [['user_id'], 'unique', 'message' => "This account has already been assigned."],
+            [['parents_full_name'], 'unique', 'message' => "This parent has already been assigned."],
         ];
     }
 

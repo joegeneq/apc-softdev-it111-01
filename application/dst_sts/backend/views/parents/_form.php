@@ -20,7 +20,7 @@ use common\models\User;
         ['prompt'=>"Select parent's account username"]
     ) ?>
 
-    <?= $form->field($model, 'student_id')->textInput(['value'=>Yii::$app->session->getFlash('studentId')]) ?>
+    <?= $form->field($model, 'student_id')->hiddenInput(['value'=>Yii::$app->session->getFlash('studentId')])->label(false) ?>
 
     <?= $form->field($model, 'parents_full_name')->dropDownList(
         ArrayHelper::map(User::find()->where(['user_type'=>'Parent'])->all(),'full_name','full_name'),

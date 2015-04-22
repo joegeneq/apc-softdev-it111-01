@@ -34,7 +34,10 @@ class Adviser extends \yii\db\ActiveRecord
         return [
             [['adviser_gender'], 'string'],
             [['user_id', 'section_id'], 'required'],
-            [['adviser_full_name'], 'string', 'max' => 255]
+            [['adviser_full_name'], 'string', 'max' => 255],
+            ['user_id', 'unique', 'message' => "This account has already been assigned."],
+            ['adviser_full_name', 'unique', 'message' => "This adviser has already been assigned."],
+            ['section_id', 'unique', 'message' => "This section has already been assigned."],
         ];
     }
 

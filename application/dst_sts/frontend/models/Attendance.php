@@ -33,7 +33,8 @@ class Attendance extends \yii\db\ActiveRecord
             [['attendance_date', 'attendance_status', 'student_id'], 'required'],
             [['attendance_date'], 'safe'],
             [['attendance_status'], 'string'],
-            [['student_id'], 'integer']
+            [['student_id'], 'integer'],
+            [['attendance_date'], 'unique', 'targetAttribute' => ['attendance_date', 'student_id'], 'message' => "This date's attendance has already been recorded."]
         ];
     }
 

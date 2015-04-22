@@ -43,7 +43,8 @@ class Student extends \yii\db\ActiveRecord
             [['student_birthdate', 'student_admission_date'], 'safe'],
             ['student_id_number', 'unique', 'targetClass' => '\backend\models\Student', 'message' => 'This ID number has already been taken.'],
             [['student_id_number', 'student_full_name', 'student_level'], 'string', 'max' => 45],
-            [['student_address'], 'string', 'max' => 255]
+            [['student_address'], 'string', 'max' => 255],
+            ['student_full_name', 'unique', 'message' => "This student exists."],
         ];
     }
 

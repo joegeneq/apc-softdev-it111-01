@@ -23,7 +23,7 @@ use backend\models\Section;
     ) ?> -->
 
     <?= $form->field($model, 'student_id')->dropDownList(
-        ArrayHelper::map(Student::find()->where("section_id=(SELECT section_id FROM adviser WHERE user_id=".Yii::$app->user->identity->id.")")->all(),'id','student_full_name'),
+        ArrayHelper::map(Student::find()->where("section_id=(SELECT section_id FROM adviser WHERE user_id=".Yii::$app->user->identity->id.") AND student_status='Enrolled'")->all(),'id','student_full_name'),
         ['prompt'=>"Select students' full name"]
     ) ?>
 
