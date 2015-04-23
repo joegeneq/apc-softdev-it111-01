@@ -6,7 +6,7 @@ $this->title = 'DCarmelite School of Taguig - Student Tracking System';
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1 style="font-size:40px;"><img id="dst-logo" src="../views/site/images/dst-logo.png"/> D'Carmelite School of Taguig</h1>
+        <h1 style="font-size:40px;"><img id="dst-logo" src="/views/site/images/dst-logo.png"/> D'Carmelite School of Taguig</h1>
         <h2 style="margin-top:-75px;">Student Tracking System</h2>
 
     </div>
@@ -16,7 +16,7 @@ $this->title = 'DCarmelite School of Taguig - Student Tracking System';
     <?php 
         if(Yii::$app->user->isGuest) { ?>
 
-            <center><img id="staffpic" src="../views/site/images/staffpic.jpg" width="600px" height="400px"/></center>
+            <center><img id="staffpic" src="/views/site/images/staffpic.jpg" width="600px" height="400px"/></center>
 
             </br>
  
