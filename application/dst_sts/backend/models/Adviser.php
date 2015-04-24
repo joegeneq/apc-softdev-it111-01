@@ -4,6 +4,8 @@ namespace backend\models;
 
 use Yii;
 
+use common\models\User;
+
 /**
  * This is the model class for table "adviser".
  *
@@ -50,8 +52,8 @@ class Adviser extends \yii\db\ActiveRecord
             'id' => 'ID',
             'adviser_full_name' => 'Full Name',
             'adviser_gender' => 'Gender',
-            'user_id' => 'User Account Name',
-            'section_id' => 'Section Name',
+            'user_id' => 'Account Username',
+            'section_id' => 'Section',
         ];
     }
 

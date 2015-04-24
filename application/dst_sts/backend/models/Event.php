@@ -35,7 +35,8 @@ class Event extends \yii\db\ActiveRecord
             [['event_date'], 'safe'],
             [['event_description', 'event_status'], 'string'],
             [['event_title', 'event_host'], 'string', 'max' => 45],
-            [['event_venue'], 'string', 'max' => 255]
+            [['event_venue'], 'string', 'max' => 255],
+            ['event_date', 'unique', 'message' => "This date is occupied."],
         ];
     }
 

@@ -63,7 +63,7 @@ class Student extends \yii\db\ActiveRecord
             'student_admission_date' => 'Admission Date',
             'student_level' => 'Grade Level',
             'student_status' => 'Status',
-            'section_id' => 'Section Name',
+            'section_id' => 'Section',
         ];
     }
 

@@ -18,8 +18,8 @@ class ParentsSearch extends Parents
     public function rules()
     {
         return [
-            [['id', 'student_id', 'user_id'], 'integer'],
-            [['parents_full_name', 'parents_contact_number', 'parents_address'], 'safe'],
+            [['id'], 'integer'],
+            [['parents_full_name', 'student_id', 'user_id', 'parents_contact_number', 'parents_address'], 'safe'],
         ];
     }
 
@@ -55,15 +55,18 @@ class ParentsSearch extends Parents
             return $dataProvider;
         }
 
+        $query->joinwith('user');
+        $query->joinwith('student');
+
         $query->andFilterWhere([
             'id' => $this->id,
-            'student_id' => $this->student_id,
-            'user_id' => $this->user_id,
         ]);
 
         $query->andFilterWhere(['like', 'parents_full_name', $this->parents_full_name])
             ->andFilterWhere(['like', 'parents_contact_number', $this->parents_contact_number])
-            ->andFilterWhere(['like', 'parents_address', $this->parents_address]);
+            ->andFilterWhere(['like', 'parents_address', $this->parents_address])
+            ->andFilterWhere(['like', 'user.username', $this->user_id])
+            ->andFilterWhere(['like', 'student.student_full_name', $this->student_id]);
 
         return $dataProvider;
     }

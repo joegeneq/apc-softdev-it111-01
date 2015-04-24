@@ -11,7 +11,7 @@ try {
     $connection = new PDO($url, $username, $password);
 
     // Prepare and execute query
-    $query = "SELECT * FROM event";
+    $query = "SELECT * FROM event WHERE event_status='Active'";
     $sth = $connection->prepare($query);
     $sth->execute();
 

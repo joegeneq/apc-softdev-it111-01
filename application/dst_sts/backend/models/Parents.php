@@ -4,6 +4,8 @@ namespace backend\models;
 
 use Yii;
 
+use common\models\User;
+
 /**
  * This is the model class for table "parents".
  *
@@ -52,7 +54,7 @@ class Parents extends \yii\db\ActiveRecord
             'parents_full_name' => 'Full Name',
             'parents_contact_number' => 'Contact Number',
             'parents_address' => 'Address',
-            'student_id' => 'Student ID',
+            'student_id' => "Student's Full Name",
             'user_id' => 'Account Username',
         ];
     }

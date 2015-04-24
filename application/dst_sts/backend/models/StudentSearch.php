@@ -18,8 +18,8 @@ class StudentSearch extends Student
     public function rules()
     {
         return [
-            [['id', 'section_id'], 'integer'],
-            [['student_id_number', 'student_full_name', 'student_gender', 'student_birthdate', 'student_address', 'student_admission_date', 'student_level', 'student_status'], 'safe'],
+            [['id'], 'integer'],
+            [['student_id_number', 'section_id', 'student_full_name', 'student_gender', 'student_birthdate', 'student_address', 'student_admission_date', 'student_level', 'student_status'], 'safe'],
         ];
     }
 
@@ -55,11 +55,12 @@ class StudentSearch extends Student
             return $dataProvider;
         }
 
+        $query->joinWith('section');
+
         $query->andFilterWhere([
             'id' => $this->id,
             'student_birthdate' => $this->student_birthdate,
             'student_admission_date' => $this->student_admission_date,
-            'section_id' => $this->section_id,
         ]);
 
         $query->andFilterWhere(['like', 'student_id_number', $this->student_id_number])
@@ -67,7 +68,8 @@ class StudentSearch extends Student
             ->andFilterWhere(['like', 'student_gender', $this->student_gender])
             ->andFilterWhere(['like', 'student_address', $this->student_address])
             ->andFilterWhere(['like', 'student_level', $this->student_level])
-            ->andFilterWhere(['like', 'student_status', $this->student_status]);
+            ->andFilterWhere(['like', 'student_status', $this->student_status])
+            ->andFilterWhere(['like', 'section.section_name', $this->section_id]);
 
         return $dataProvider;
     }

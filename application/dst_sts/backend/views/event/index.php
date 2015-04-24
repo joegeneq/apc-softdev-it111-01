@@ -40,6 +40,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'rowOptions'=>function($model) {
+            if ($model->event_status == 'Active') {
+                return ['class'=>'success'];
+
+            } else if ($model->event_status == 'Inactive') {
+                return ['class'=>'danger'];                
+            }
+        },
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -49,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'event_host',
             'event_venue',
             // 'event_description:ntext',
-            // 'event_status',
+            'event_status',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

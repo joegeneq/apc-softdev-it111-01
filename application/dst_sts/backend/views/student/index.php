@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
+use dosamigos\datepicker\DatePicker;
+
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\StudentSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -22,19 +24,46 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'rowOptions'=>function($model) {
+            if ($model->student_status == 'Enrolled') {
+                return ['class'=>'success'];
+
+            } else if ($model->student_status == 'LOA - Leave of Absence') {
+                return ['class'=>'warning'];          
+
+            } else if ($model->student_status == 'AWOL - Absence Without Leave') {
+                return ['class'=>'danger'];                
+            }
+        },
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
+            [
+                'attribute' => 'section_id',
+                'value' => 'section.section_name',
+            ],
             'student_id_number',
             'student_full_name',
             'student_gender',
-            'student_birthdate',
+            [
+                'attribute' => 'student_birthdate',
+                'value' => 'student_birthdate',
+                'options'=> ['class'=>'width-30'],
+                'format' => 'raw',
+                'filter' => DatePicker::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'student_birthdate',
+                        'clientOptions' => [
+                            'autoclose' => false,
+                            'format' => 'yyyy-mm-dd',
+                        ]
+                ]),
+            ],
             // 'student_address',
             // 'student_admission_date',
-            // 'student_level',
-            // 'student_status',
-            // 'section_id',
+            'student_level',
+            'student_status',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
